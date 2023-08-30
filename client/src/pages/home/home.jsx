@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/navbar/navbar';
-import './home.css';
+import Navbar from '../../components/Navbar/Navbar';
+import './Home.css';
 
 const endpoint = 'http://localhost:8000/api'
 const Home = () => {
