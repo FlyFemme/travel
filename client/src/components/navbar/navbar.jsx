@@ -4,7 +4,7 @@ import Logo from '../../Assets/Logo.svg';
 import Glass from '../../Assets/Glass.svg';
 import Home from '../../Assets/Home.svg';
 import Avatar from '../../Assets/Avatar.svg';
-import './Navbar.css';
+import './navbar.css';
 
 const Navbar = () => {
 

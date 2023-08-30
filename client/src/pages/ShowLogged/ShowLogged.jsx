@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ShowLogged.css';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/navbar/Navbar';
 import { useParams } from 'react-router-dom';
 
 const endpoint = 'http://localhost:8000/api';
@@ -15,7 +15,7 @@ const ShowLogged = () => {
       const response = await axios.get(`${endpoint}/card/${id}`);
       setShow(response.data);
     };
-    
+
     getShowInfo();
   }, [id]);
 
@@ -60,7 +60,7 @@ const ShowLogged = () => {
           </div>
         </div>
       </div>
-      
+
     </>
   );
 };
