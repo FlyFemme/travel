@@ -1,0 +1,26 @@
+.card{
+    width: 18rem;
+    height: 23rem;
+    border: none;
+    background-color: #FBFDCE;
+    color: #0079FF;
+}
+
+.size{
+    width: 18rem;
+    height: 18rem;
+}
+
+.b-radius{
+    border-radius: 1.25rem;
+}
+
+.card-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-text{
+    font-size: 1.25rem;
+    font-weight: 400;
+}

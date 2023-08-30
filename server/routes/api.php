@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\NewCardController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::controller(NewCardController::class)->group(function () {
+    Route::get('/cards', 'index');
+    Route::post('/card', 'store');
+    Route::get('/card/{id}', 'show');
+    Route::put('/card/{id}', 'update');
+    Route::delete('/card/{id}', 'destroy');
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
