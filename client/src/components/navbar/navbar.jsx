@@ -3,7 +3,7 @@ import Logo from '../../Assets/Logo.svg';
 import Glass from '../../Assets/Glass.svg';
 import Home from '../../Assets/Home.svg';
 import Avatar from '../../Assets/Avatar.svg';
-import './navbar.css';
+import './Navbar.css';
 
 const Navbar = () => {
     return (
