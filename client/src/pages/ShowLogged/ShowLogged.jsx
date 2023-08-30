@@ -15,7 +15,7 @@ const ShowLogged = () => {
         imageSrc={show.imageSrc}
         title={show.title}
         text={show.text}
-      />
+      <div/>
     </div>
   );
 };
