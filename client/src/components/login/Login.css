@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto asegurará que el contenido esté centrado verticalmente en la ventana */
+  }
+  
+  form {
+    text-align: center;
+  }
