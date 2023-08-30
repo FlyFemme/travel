@@ -4,6 +4,7 @@ import './ShowLogged.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams } from 'react-router-dom';
 
+
 const endpoint = 'http://localhost:8000/api';
 
 const ShowLogged = () => {

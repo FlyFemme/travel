@@ -6,6 +6,7 @@ import Home from '../../Assets/Home.svg';
 import Avatar from '../../Assets/Avatar.svg';
 import './Navbar.css';
 
+
 const Navbar = () => {
 
     return (
