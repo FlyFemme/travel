@@ -12,7 +12,7 @@ function App() {
           <Route path='/create' element={<CreateForm />} />
           {/* <Route path='/edit/:id' element={<EditCard />} /> */}
 
-            <Route path='/show-logged' element={<ShowLogged />}/>
+          <Route path='/show-logged/:id' element={<ShowLogged />} />
 
           </Routes>
         </BrowserRouter>
