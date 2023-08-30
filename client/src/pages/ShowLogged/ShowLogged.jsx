@@ -30,7 +30,7 @@ const ShowLogged = () => {
             <div className="col-md-6">
               <div
                 className="d-flex justify-content-center align-items-center"
-                style={{ marginRight: '-10rem' }}
+                style={{ marginRight: '-4rem' }}
               >
                 <img
                   className="rounded-4"
@@ -55,7 +55,7 @@ const ShowLogged = () => {
                 </div>
               </div>
               <p style={{ color: '#FF0060' }}>{show.location}</p>
-              <p className="text-primary">{show.content}</p>
+              <p className="text-primary">{show.description}</p>
             </div>
           </div>
         </div>
