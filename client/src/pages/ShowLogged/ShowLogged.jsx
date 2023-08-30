@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './ShowLogged.css';
-import Card from '../../components/Card/Card';
 import Navbar from '../../components/Navbar/Navbar';
+import { useParams } from 'react-router-dom';
+
+const endpoint = 'http://localhost:8000/api';
 
 const ShowLogged = () => {
-  const show = {
-    image: 'url_de_la_imagen.jpg',
-    title: 'Título del Show',
-    location: 'Ubicación del Show',
-    content: 'Descripción del show...',
-  };
+  const [show, setShow] = useState({});
+  const { id } = useParams();
 
-  const isUserAuthenticated = true; //Aqui queda true por que es una vista Logged //
+  useEffect(() => {
+    const getShowInfo = async () => {
+      const response = await axios.get(`${endpoint}/card/${id}`);
+      setShow(response.data);
+    };
+    
+    getShowInfo();
+  }, [id]);
+
+  const isUserAuthenticated = true; // aquí se supone que estoy logged //
 
   return (
     <>
@@ -41,33 +49,7 @@ const ShowLogged = () => {
                 <div className="d-flex">
                   {isUserAuthenticated && (
                     <>
-                      <a href={`edit/${show.id}`}>
-                        <img
-                          src={require('../../Assets/Edit-icon.svg').default}
-                          className="m-1"
-                          alt=""
-                        />
-                      </a>
-                      <form
-                        action={`delete/${show.id}`}
-                        method="POST"
-                        style={{ display: 'inline' }}
-                      >
-                        {/* Agregar el token CSRF y método DELETE según corresponda */}
-                        <button
-                          type="submit"
-                          className="delete-destination"
-                          style={{
-                            border: 'none',
-                            backgroundColor: 'transparent',
-                          }}
-                        >
-                          <img
-                            src={require('../../Assets/Delete-icon.svg').default}
-                            alt="delete-icon"
-                          />
-                        </button>
-                      </form>
+                      {/* Espacio para enlaces de edición y formulario de eliminacion */}
                     </>
                   )}
                 </div>
@@ -78,11 +60,7 @@ const ShowLogged = () => {
           </div>
         </div>
       </div>
-      <Card
-        imageSrc={show.image}
-        title={show.title}
-        text={show.content}
-      />
+      
     </>
   );
 };
