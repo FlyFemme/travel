@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ShowLogged from './pages/ShowLogged/ShowLogged';
-import Home from './pages/home/Home';
+//import ShowLogged from './pages/ShowLogged/ShowLogged';
+import Home from './pages/home/home'
 import CreateForm from '../src/pages/form/Createform';
 
 function App() {
@@ -12,8 +12,7 @@ function App() {
           <Route path='/create' element={<CreateForm />} />
           {/* <Route path='/edit/:id' element={<EditCard />} /> */}
 
-          <Route path='/show-logged/:id' element={<ShowLogged />} />
-
+         
           </Routes>
         </BrowserRouter>
       </div>

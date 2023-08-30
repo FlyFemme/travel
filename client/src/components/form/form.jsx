@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './form.css'
 
 const CreateForm = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const CreateForm = () => {
             const response = await fetch('https://restcountries.com/v3.1/all');
             const data = await response.json();
 
-            // Transform data into an array of objects suitable for <option> elements
+
             const countryOptions = data.map(country => ({
                 code: country.cca2,
                 name: country.name.common,
@@ -40,7 +41,7 @@ const CreateForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // ... Lógica para manejar el envío del formulario ...
+
     };
 
     return (
