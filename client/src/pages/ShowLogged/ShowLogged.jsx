@@ -1,7 +1,10 @@
 import React from 'react';
 import './ShowLogged.css';
 import Card from '../../components/Card/Card';
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/navbar/navbar';
+
+
+
 
 const ShowLogged = () => {
   const show = {

@@ -1,7 +1,9 @@
-import './pages/home/Home.css';
+import '../../Home/Home.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/home/Home';
-import ShowLogged from './pages/ShowLogged/ShowLogged';
+import ShowLogged from '../../ShowLogged/ShowLogged';
+import Home from '../../Home/Home';
+
+
 
 
   function App() {

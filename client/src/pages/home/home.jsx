@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Navbar from '../../components/Navbar/Navbar';
 import './Home.css';
+import Navbar from '../../components/navbar/navbar';
+
 
 const endpoint = 'http://localhost:8000/api'
 const Home = () => {
@@ -39,4 +40,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
