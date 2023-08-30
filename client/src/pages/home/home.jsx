@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.css';
-import Navbar from '../../components/navbar/navbar';
+import Navbar from '../../components/Navbar/navbar';
 
 
 const endpoint = 'http://localhost:8000/api'
