@@ -1,6 +1,7 @@
 import React from 'react';
-import 'ShowLogged.css';
-import Card from '../components/Card'; // Corroborar que nombre tiene el componente ???
+import './ShowLogged.css';
+import Card from '../../components/Card/Card';
+import Navbar from '../../components/Navbar/Navbar';
 
 const ShowLogged = () => {
   const show = {
@@ -10,13 +11,16 @@ const ShowLogged = () => {
  };
 
   return (
+    <>
+    <Navbar />
     <div className="show-page">
-      <Card????
+      <Card
         imageSrc={show.imageSrc}
         title={show.title}
         text={show.text}
       <div/>
     </div>
+    </>
   );
 };
 
