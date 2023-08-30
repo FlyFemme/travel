@@ -25,7 +25,7 @@ const ShowLogged = () => {
     <>
       <Navbar />
       <div className="show-page" style={{ background: 'white' }}>
-        <div className="container" style={{ marginTop: '4rem' }}>
+        <div className="container">
           <div className="row">
             <div className="col-md-6">
               <div
