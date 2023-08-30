@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ShowLogged.css';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import { useParams } from 'react-router-dom';
 
 const endpoint = 'http://localhost:8000/api';
