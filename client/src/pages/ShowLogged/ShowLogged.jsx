@@ -1,7 +1,7 @@
 import React from 'react';
 import './ShowLogged.css';
-import Card from '../../components/Card/card';
-import Navbar from '../../components/Navbar/navbar';
+import Card from '../../components/Card/Card';
+import Navbar from '../../components/Navbar/Navbar';
 
 
 
