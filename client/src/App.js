@@ -1,21 +1,22 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/home';
 
-function App() {
-  return (
-    <Router>
+  function App() {
+    return (
       <div className="App">
-        <Routes path="/show-logged" />
+        <BrowserRouter>
+          <Routes>
+          <Route path='/show-logged'/>
 
-        <Routes path='/' element={<Home />} />
-          {/* <Route path='/create' element={<CreateCard />} /> */}
-          {/* <Route path='/edit/:id' element={<EditCard />} /> */}
-          
+            <Route path='/' element={<Home />} />
+            {/* <Route path='/create' element={<CreateCard />} /> */}
+            {/* <Route path='/edit/:id' element={<EditCard />} /> */}
+          </Routes>
+        </BrowserRouter>
       </div>
-    </Router>
-  );
-}
+    );
+  }
 
-export default App;
+  export default App;
