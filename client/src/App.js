@@ -1,7 +1,7 @@
-import './pages/home/Home.css';
+import './pages/Home/Home.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ShowLogged from './pages/ShowLogged/ShowLogged';
-import Home from './pages/home/Home';
+import Home from './pages/Home/Home';
 
 
 
