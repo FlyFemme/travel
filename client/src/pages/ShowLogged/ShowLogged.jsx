@@ -1,16 +1,13 @@
 import React from 'react';
 import './ShowLogged.css';
-import Card from '../../components/Card/card';
-import Navbar from '../../components/Navbar/navbar';
-
-
-
+import Navbar from '../../components/Navbar/Navbar';
+import Card from '../../components/Card/Card';
 
 const ShowLogged = () => {
   const show = {
-    imageSrc: 'url_de_la_imagen.jpg',
+    image: 'url_de_la_imagen.jpg',
     title: 'Título del Show',
-    text: 'Descripción del show...',
+    text: 'Descripción del show...', 
   };
 
   return (
@@ -18,7 +15,7 @@ const ShowLogged = () => {
       <Navbar />
       <div className="show-page">
         <Card
-          imageSrc={show.imageSrc}
+          imageSrc={show.image}
           title={show.title}
           text={show.text}
         />
