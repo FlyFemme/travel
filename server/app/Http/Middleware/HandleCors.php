@@ -7,14 +7,11 @@ use Closure;
 class HandleCors
 {
     public function handle($request, Closure $next)
-    {
-        $response = $next($request);
+{
+    return $next($request)
+        ->header('Access-Control-Allow-Origin', '*')
+        ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+        ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+}
 
-        $response->header('Access-Control-Allow-Origin', '*'); //El '*' hay que reemplazarlo antes de pasar a producción //
-        $response->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-        $response->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        $response->header('Access-Control-Allow-Credentials', 'true');
-
-        return $response;
-    }
 }
