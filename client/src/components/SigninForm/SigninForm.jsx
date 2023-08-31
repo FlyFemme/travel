@@ -26,7 +26,7 @@ const SigninForm = () => {
                     <Button backgroundColorClass="bttn-primary" text="Aceptar" />
                     <Link to={`/`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
                 </div>
-                <p className="accede bold">¿Ya tienes una cuenta? Accede <Link to="" className="aqui">aquí</Link></p>
+                <p className="accede bold">¿Ya tienes una cuenta? Accede <Link to={`/login`} className="aqui">aquí</Link></p>
             </form>
         </main>
     )
