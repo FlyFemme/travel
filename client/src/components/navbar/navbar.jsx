@@ -13,13 +13,13 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-light bg-white me-5 ms-5 border-bottom border-primary border-2">
                 <div className="container-fluid">
-                    <Link to="" className="navbar-brand"><img src={Logo} alt="" /></Link>
+                    <Link to="/home" className="navbar-brand"><img src={Logo} alt="" /></Link>
                     <form className="d-flex" action="" method="">
                         <div className="input-wrapper">
                             <input name="s" className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
                             <Link to=""><img src={Glass} className="input-icon" alt="" /></Link>
                         </div>
-                        <Link to={`/`}><img src={Home} className="navbar-icons" alt="" /></Link>
+                        <Link to={`/home`}><img src={Home} className="navbar-icons" alt="" /></Link>
                         <Link to={`/signin`}><img src={Avatar} className="navbar-icons" alt="" /></Link>
                     </form>
                 </div>
