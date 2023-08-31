@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Home.css';
+import './home.css';
 import Navbar from '../../components/navbar/Navbar';
 import { Link } from 'react-router-dom';
-
 
 const endpoint = 'http://localhost:8000/api';
 
@@ -15,8 +14,10 @@ const Home = () => {
   }, []);
 
   const getAllCards = async () => {
-    const response = await axios.get(`${endpoint}/cards`);
-    setCards(response.data);
+    try {
+      const response = await axios.get(`${endpoint}/cards`);
+      setCards(response.data);
+    } catch (error) {console.error('Error fetching cards:', error);}
   };
 
   return (
