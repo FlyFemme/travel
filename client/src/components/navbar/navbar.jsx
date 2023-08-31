@@ -19,8 +19,8 @@ const Navbar = () => {
                             <input name="s" className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
                             <Link to=""><img src={Glass} className="input-icon" alt="" /></Link>
                         </div>
-                        <Link to=""><img src={Home} className="navbar-icons" alt="" /></Link>
-                        <Link to=""><img src={Avatar} className="navbar-icons" alt="" /></Link>
+                        <Link to={`/`}><img src={Home} className="navbar-icons" alt="" /></Link>
+                        <Link to={`/signin`}><img src={Avatar} className="navbar-icons" alt="" /></Link>
                     </form>
                 </div>
             </nav>
