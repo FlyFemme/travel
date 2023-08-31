@@ -1,10 +1,63 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Esto asegurará que el contenido esté centrado verticalmente en la ventana */
-  }
-  
-  form {
-    text-align: center;
-  }
+/* Login.css */
+.input-container {
+  margin-bottom: 20px;
+}
+
+.shadow-input {
+  padding: 10px;
+  border: 1px solid yellow;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.blue-label {
+  color: blue;
+  font-weight: bold;
+}
+
+.red-underlined {
+  color: red;
+  text-decoration: underline;
+}
+
+
+div {
+  text-align: center;
+  margin: auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  background-color:white;
+}
+
+/* Estilos para el título */
+h2 {
+  color: red;
+}
+
+/* Estilos para los campos de entrada */
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid yellow;
+  border-radius: 3px;
+}
+
+/* Estilos para el botón de login */
+button {
+  background-color: #00dfA2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:green;
+}

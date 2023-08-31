@@ -1,25 +1,28 @@
 import React from 'react'
 import "./Login.css"
 
+
 function Login() {
   return (
-    <div className="login-container">
-    <h2>Acceso de Usuario</h2>
+    <div>
+      <h2 className="red-underlined">Acceso de Usuario</h2>
     <form>
       <div>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username" className='blue-label'>e-mail</label>
         <input
           type="text"
           id="username"
           name="username"
+          className="shadow-input"
         />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className='blue-label'>Contraseña<applet></applet><acronym title=""></acronym></label>
         <input
           type="password"
           id="password"
-          name="password"          
+          name="password"
+          className="shadow-input"       
         />
       </div>
       <button type="submit">Login</button>
