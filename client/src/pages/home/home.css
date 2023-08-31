@@ -11,6 +11,7 @@ body{
     border: none;
     background-color: #FBFDCE;
     color: #0079FF;
+    text-decoration: none;
 }
 
 .size{
@@ -41,10 +42,6 @@ body{
     cursor: pointer;
     font-size: inherit; 
     color: inherit;
-}
-
-a{
-    text-decoration: none;
 }
 
 .close-btn{
