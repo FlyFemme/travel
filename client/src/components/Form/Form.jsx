@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-//import Button from './Button';
+import Button from './Button';
 import './Create.css';
 
 const Form = () => {
@@ -48,7 +48,7 @@ const Form = () => {
             });
 
             if (response.ok) {
-                // Aquí puedes realizar alguna acción en caso de éxito
+
                 console.log('Formulario enviado exitosamente');
             } else {
                 console.error('Error al enviar el formulario');
@@ -57,7 +57,7 @@ const Form = () => {
             console.error('Error en la solicitud:', error);
         }
     };
-    
+
 return (
         <main className="container mt-5 d-flex justify-content-center">
             <form className="custom-form w-form" onSubmit={handleSubmit}>
