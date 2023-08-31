@@ -30,6 +30,7 @@ const Form = () => {
             console.error('Error fetching countries:', error);
         }
     };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -48,7 +49,6 @@ const Form = () => {
             });
 
             if (response.ok) {
-
                 console.log('Formulario enviado exitosamente');
             } else {
                 console.error('Error al enviar el formulario');
@@ -58,7 +58,7 @@ const Form = () => {
         }
     };
 
-return (
+    return (
         <main className="container mt-5 d-flex justify-content-center">
             <form className="custom-form w-form" onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -86,8 +86,6 @@ return (
                         className="form-control"
                         required
                     />
-                    <Button backgroundColorClass="btn-primary" text="Aceptar" />
-                    <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="description" className="mt-4">Descripción</label>
@@ -101,8 +99,8 @@ return (
                     />
                 </div>
                 <div className="w-100 border-bottom border my-10 line"></div>
-                <Button backgroundColorClass="btn-primary" text="Aceptar" />;
-                <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>;
+                <Button backgroundColorClass="btn-primary" text="Aceptar" />
+                <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>
             </form>
         </main>
     );

@@ -1,4 +1,4 @@
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/navbar/Navbar';
 import EditForm from '../../components/EditForm/EditForm';
 import './Edit.css';
 
