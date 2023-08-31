@@ -1,6 +1,42 @@
-/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Jaldi&display=swap');
+:root {
+    --color-primary: #00DFA2;
+    --color-secondary: #FF0060;
+    --color-background: #FBFDCE;
+    --color-text: #0079FF;
+    --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    --border-radius: 1.25rem;
+}
 
+.container {
+    width: 70%;
+    padding: 3rem;
+    margin: 2rem;
+    border-radius: 20px;
+    border: 4px solid var(--yellow-light, #FBFDCE)
 
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+}
+
+.shadow-input {
+    border-radius: var(--border-radius);
+    background: var(--color-background);
+    box-shadow: var(--box-shadow);
+    color: var(--color-text);
+}
+
+h2.title
+{
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+}
 
 .input-container {
   margin-bottom: 20px;
@@ -15,33 +51,11 @@
   transition: box-shadow 0.3s ease;
 }
 
-
-.blue-label {
-  color: blue;
-  font-weight: bold;
+.user{
+ align-items:left;
+ color: var(--color-text);
+ font-weight: bold;
 }
-
-.red-underlined {
-  color: red;
-  text-decoration: underline;
-}
-
-
-div {
-  text-align: center;
-  margin: auto;
-  width: 300px;
-  padding: 20px;
-  border: 1px solid yellow;
-  border-radius: 5px;
-  background-color:white;
-}
-
-/* Estilos para el título */
-h2 {
-  color: red;
-}
-
 /* Estilos para los campos de entrada */
 input {
   width: 100%;
@@ -63,4 +77,4 @@ button {
 
 button:hover {
   background-color:green;
-}
+} 

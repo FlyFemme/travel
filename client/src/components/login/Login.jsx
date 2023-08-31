@@ -5,10 +5,10 @@ import "./Login.css"
 function Login() {
   return (
     <div>
-      <h2 className="red-underlined">Acceso de Usuario</h2>
-    <form>
+      <h2 className="title">Acceso de Usuario</h2>
+    <form className='container'>
       <div>
-        <label htmlFor="username" className='blue-label'>e-mail</label>
+        <label htmlFor="username" className='user'>e-mail</label>
         <input
           type="text"
           id="username"
@@ -17,8 +17,8 @@ function Login() {
         />
       </div>
       <div>
-        <label htmlFor="password" className='blue-label'>Contraseña<applet></applet><acronym title=""></acronym></label>
-        <input
+        <label htmlFor="password" className='user'>Contraseña<applet></applet><acronym title=""></acronym></label>
+        <input 
           type="password"
           id="password"
           name="password"
