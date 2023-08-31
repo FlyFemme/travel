@@ -9,18 +9,7 @@ class Card extends Model
 {
     use HasFactory;
 
-    /*protected $table = 'Card'; 
-    protected $primaryKey = 'id'; */
-    protected $fillable = [
-        'title',
-        'location',
-        'image',
-        'description'
-    ];
+    protected $fillable = ['title', 'location', 'image', 'description'];
 
-    protected $hidden = [
-        "created_at",
-        "updated_at"
-    ];
-
+    protected $hidden = ["created_at", "updated_at"];
 }
