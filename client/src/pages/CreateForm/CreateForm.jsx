@@ -1,22 +1,14 @@
-import React from 'react';
-import Navbar from '../../components/navbar/Navbar';
 import Form from '../../components/Form/Form';
-import './CreateForm.css'
+import Navbar from '../../components/navbar/Navbar';
+import '../../components/Form/Create.css'
+const Create = () => {
 
-const CreatePage = () => {
-  return (
-    <div>
-      <Navbar />
-      <div className="page-content">
-        <div className="col-md-5 border p-4 d-flex flex-column align-items-center">
-          <div className="border-bottom mb-3">
-            <h2 className="text-center mb-3 title d-flex align-items-center justify-content-center">Crear destino</h2>
+    return (
+        <>
+            <Navbar />
             <Form />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+        </>
+    );
 };
 
-export default CreatePage;
+export default Create;

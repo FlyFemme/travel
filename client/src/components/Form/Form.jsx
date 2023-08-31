@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './Create.css'
-
+import { Link } from 'react-router-dom';
+//import Button from './Button';
+import './Create.css';
 
 const Form = () => {
-    const [formData, setFormData] = useState({
-        place: '',
-        country: '',
-        image: '',
-        description: '',
-    });
+    const [title, setTitle] = useState('');
+    const [location, setLocation] = useState('');
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
 
     const [countries, setCountries] = useState([]);
 
@@ -21,7 +20,6 @@ const Form = () => {
             const response = await fetch('https://restcountries.com/v3.1/all');
             const data = await response.json();
 
-
             const countryOptions = data.map(country => ({
                 code: country.cca2,
                 name: country.name.common,
@@ -32,81 +30,81 @@ const Form = () => {
             console.error('Error fetching countries:', error);
         }
     };
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        try {
+            const response = await fetch('http://localhost:8000/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title,
+                    location,
+                    image,
+                    description,
+                }),
+            });
+
+            if (response.ok) {
+                // Aquí puedes realizar alguna acción en caso de éxito
+                console.log('Formulario enviado exitosamente');
+            } else {
+                console.error('Error al enviar el formulario');
+            }
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
+        }
     };
-
-    return (
-        <main className="container mt-5">
-                    <div className="mb-3 w-100">
-                        <label htmlFor="titulo" className="form-label">Título</label>
-                        <input
-                            type="text"
-                            name="place"
-                            value={formData.place}
-                            onChange={handleInputChange}
-                            className="form-control form-control-lg"
-                            id="titulo"
-                            placeholder="Escribe un título"
-                            required
-                        />
-                    </div>
-                    <div className="mb-3 w-100">
-                        <label htmlFor="ubicacion" className="form-label">Ubicación</label>
-                        <select
-    name="country"
-    value={formData.country}
-    onChange={handleInputChange}
-    className="form-select form-control-lg"
-    id="ubicacion"
-    required
->
-    <option value="">Seleccione una ubicación</option>
-    {countries.map(country => (
-        <option key={country.code} value={country.code}>
-            {country.name}
-        </option>
-    ))}
-</select>
-                    </div>
-                    <div className="mb-3 w-100">
-                        <label htmlFor="image" className="form-label">Escribe la URL de la imagen</label>
-                        <input
-                            type="text"
-                            name="image"
-                            value={formData.image}
-                            onChange={handleInputChange}
-                            className="form-control form-control-lg"
-                            id="imagen"
-                            placeholder="Sube una imagen"
-                            required
-                        />
-                    </div>
-
-                <div className="col-md-5 p-4">
-                    <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Descripción</label>
-                        <textarea
-                            name="description"
-                            value={formData.description}
-                            onChange={handleInputChange}
-                            className="form-control form-control-lg"
-                            id="descripcion"
-                            placeholder="Escribe una descripción"
-                            required
-                        />
-                    </div>
+    
+return (
+        <main className="container mt-5 d-flex justify-content-center">
+            <form className="custom-form w-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="title" className="mt-4">Título</label>
+                    <input
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        type="text"
+                        className="form-control"
+                        required
+                    />
+                    <label htmlFor="location" className="mt-4">Ubicación</label>
+                    <input
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        type="text"
+                        className="form-control"
+                        required
+                    />
+                    <label htmlFor="image" className="mt-4">Imagen</label>
+                    <input
+                        value={image}
+                        onChange={(e) => setImage(e.target.value)}
+                        type="text"
+                        className="form-control"
+                        required
+                    />
+                    <Button backgroundColorClass="btn-primary" text="Aceptar" />
+                    <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>
                 </div>
-            </main>
+                <div className="col-md-6">
+                    <label htmlFor="description" className="mt-4">Descripción</label>
+                    <textarea
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        type="text"
+                        className="form-control"
+                        rows="12"
+                        required
+                    />
+                </div>
+                <div className="w-100 border-bottom border my-10 line"></div>
+                <Button backgroundColorClass="btn-primary" text="Aceptar" />;
+                <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>;
+            </form>
+        </main>
     );
 };
 
