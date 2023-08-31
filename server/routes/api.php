@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewCardController;
+use Laravel\Sanctum\Http\Controllers\AuthenticatedSessionController;
+use Laravel\Sanctum\Http\Controllers\RegisteredUserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +28,6 @@ Route::controller(NewCardController::class)->group(function () {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
