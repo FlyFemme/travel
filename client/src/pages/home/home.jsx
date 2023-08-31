@@ -4,7 +4,6 @@ import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
-
 const endpoint = 'http://localhost:8000/api';
 
 const Home = () => {
@@ -15,8 +14,10 @@ const Home = () => {
   }, []);
 
   const getAllCards = async () => {
-    const response = await axios.get(`${endpoint}/cards`);
-    setCards(response.data);
+    try {
+      const response = await axios.get(`${endpoint}/cards`);
+      setCards(response.data);
+    } catch (error) {console.error('Error fetching cards:', error);}
   };
 
   return (
