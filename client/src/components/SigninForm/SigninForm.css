@@ -50,6 +50,12 @@ textarea.form-control {
     font-size: 0.85rem!important;
 }
 
+.cancel{
+    text-decoration: none;
+    color: var(--color-background);
+    text-align: center;
+}
+
 .accede{
     margin: 0.75rem;
     font-size: 0.85rem;
