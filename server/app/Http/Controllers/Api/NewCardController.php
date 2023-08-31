@@ -31,13 +31,13 @@ class NewCardController extends Controller
         return $card;
     }
 
-    public function update(Request $request, Card $card)
+    public function update(Request $request, $id)
     {
-
-        $card->image = $request->input('image');
-        $card->title = $request->input('title');
-        $card->location = $request->input('location');
-        $card->description = $request->input('description');
+        $card = Card::findOrFail($request->id);
+        $card->image = $request->image;
+        $card->title = $request->title;
+        $card->location = $request->location;
+        $card->description = $request->description;
 
         $card->save();
         return $card;
