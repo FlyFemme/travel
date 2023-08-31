@@ -4,7 +4,6 @@ import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
-
 const endpoint = 'http://localhost:8000/api';
 
 const Home = () => {
