@@ -51,6 +51,8 @@ const Form = () => {
     };
 
 
+
+
 return (
             <div className='square'>
                 <form className="custom-form" onSubmit={store}>
@@ -58,7 +60,7 @@ return (
                     <div className="w-100 border-bottom border my-10 line"></div>
                     <div className="row">
                         <div className="col-md-6">
-                            <div className='mb-3'>
+                            <div className='mb-3 mt-4'>
                                 <label className='form-label'>Título</label>
                                 <input
                                     value={title}
@@ -66,8 +68,13 @@ return (
                                     type='text'
                                     className='form-control'
                                     placeholder="Escribe un título"
-                                    required
-                                />
+                                    />
+                                    {/*title === '' && (
+                                    <div id='alertno' class="alert alert-danger" role="alert">
+                                    Este campo es obligatorio
+                                    </div>
+                                    )*/}
+
                             </div>
                             <div className='mb-3'>
                                 <label className='form-label'>Ubicación</label>
@@ -76,8 +83,12 @@ return (
                                 onChange={(e) => setLocation(e.target.value)}
                                 className="form-control"
                                 id="ubicacion"
-                                required
-                            >
+                                >
+                                {/*location === '' && (
+                                    <div class="alert alert-danger" role="alert">
+                                    Debe seleccionar una ubicación
+                                    </div>
+                                )*/}
                                 <option value="">Seleccione una ubicación</option>
                                 {countries.map(country => (
                                     <option key={country.code} value={country.code}>
@@ -95,11 +106,16 @@ return (
                                     placeholder="URL"
                                     className='form-control'
                                 />
+                                {/*image === '' && (
+                                    <div class="alert alert-danger" role="alert">
+                                    Este campo es obligatorio
+                                    </div>
+                                    )*/}
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <div className='mb-3'>
-                                <label className='form-label'>¿Porqué te gustaría ir a ese destino?</label>
+                            <div className='mb-3 mt-4'>
+                                <label className='form-label'>¿Porqué quieres viajar allí?</label>
                                 <textarea
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
@@ -107,7 +123,12 @@ return (
                                     placeholder="Escribe tu respuesta"
                                     rows={10}
                                     className='form-control'
-                                />
+                                    />
+                                {/*description === '' && (
+                                    <div class="alert alert-danger" role="alert">
+                                    Este campo es obligatorio
+                                    </div>
+                                    )*/}
                             </div>
                         </div>
                     </div>
