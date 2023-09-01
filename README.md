@@ -1,4 +1,4 @@
-.
+<img width="77" alt="HappyTravel" src="https://github.com/FlyFemme/travel/assets/132339878/c2d29c78-f143-4b61-89c3-40c974d1d037">
 
 <div align="center">.
   <h1> FlyFemme/Happy Travel ✈️</h1>
