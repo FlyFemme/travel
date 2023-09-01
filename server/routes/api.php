@@ -3,8 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewCardController;
-use Laravel\Sanctum\Http\Controllers\AuthenticatedSessionController;
-use Laravel\Sanctum\Http\Controllers\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +15,18 @@ use Laravel\Sanctum\Http\Controllers\RegisteredUserController;
 |
 */
 
-Route::controller(NewCardController::class)->group(function () {
-    Route::get('/cards', 'index');
-    Route::post('/card', 'store');
-    Route::get('/card/{id}', 'show');
-    Route::put('/card/{id}', 'update');
-    Route::delete('/card/{id}', 'destroy');
+Route::prefix('api')->group(function () {
+    Route::get('/cards', [NewCardController::class, 'index']);
+    Route::post('/card', [NewCardController::class, 'store']);
+    Route::get('/card/{id}', [NewCardController::class, 'show']);
+    Route::put('/card/{id}', [NewCardController::class, 'update']);
+    Route::delete('/card/{id}', [NewCardController::class, 'destroy']);
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('cards', NewCardController::class);
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+});
