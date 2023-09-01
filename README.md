@@ -60,7 +60,7 @@
 - Place the project folder into the projects directory of your XAMPP installation
 - Set up the database.
 - Open the project in your code editor.
-- 
+  
 ## Back
 - Inside the "laravel" folder,
 - Open a terminal and run **"composer install"**
