@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Button from './Button';
-import './Create.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Create.css'
+
+
 
 const Form = () => {
+    const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [location, setLocation] = useState('');
-    const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
+    const navigate = useNavigate();
+    const endpoint = 'http://localhost:8000/api';
+
+    const store = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post(endpoint, {
+                image: image,
+                title: title,
+                location: location,
+                description: description
+            });
+            navigate('/');
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+        }
+    };
 
     const [countries, setCountries] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetchCountries();
@@ -26,84 +46,72 @@ const Form = () => {
             }));
 
             setCountries(countryOptions);
+            setIsLoading(false);
         } catch (error) {
             console.error('Error fetching countries:', error);
         }
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+return (
+            <div className='square'>
+                <form className="custom-form" onSubmit={store}>
+                    <h2 className="text-center mb-9 title">Crear destino</h2>
+                    <div className="w-100 border-bottom border my-10 line"></div>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className='mb-3'>
+                                <label className='form-label'>Título</label>
+                                <input
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    type='text'
+                                    className='form-control'
+                                    placeholder="Escribe un título"
+                                    required
+                                />
+                            </div>
+                            <div className='mb-3'>
+                                <label className='form-label'>Ubicación</label>
+                                <select
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                    className='form-control'
+                                    placeholder="Selecciona una ubicación"
+                                    required
+                                >
+                                    {/* opciones */}
+                                </select>
+                            </div>
+                            <div className='mb-3'>
+                                <label className='form-label'>Imagen</label>
+                                <input
+                                    value={image}
+                                    onChange={(e) => setImage(e.target.value)}
+                                    type='text'
+                                    placeholder="URL"
+                                    className='form-control'
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className='mb-3'>
+                                <label className='form-label'>¿Porqué te gustaría ir a ese destino?</label>
+                                <textarea
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    type='text'
+                                    placeholder="Escribe tu respuesta"
+                                    rows={10}
+                                    className='form-control'
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <button type='submit' className='btn btn-primary'>Aceptar</button>
+                </form>
+            </div>
+        );
 
-        try {
-            const response = await fetch('http://localhost:8000/api', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    title,
-                    location,
-                    image,
-                    description,
-                }),
-            });
-
-            if (response.ok) {
-                console.log('Formulario enviado exitosamente');
-            } else {
-                console.error('Error al enviar el formulario');
-            }
-        } catch (error) {
-            console.error('Error en la solicitud:', error);
-        }
-    };
-
-    return (
-        <main className="container mt-5 d-flex justify-content-center">
-            <form className="custom-form w-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="title" className="mt-4">Título</label>
-                    <input
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        type="text"
-                        className="form-control"
-                        required
-                    />
-                    <label htmlFor="location" className="mt-4">Ubicación</label>
-                    <input
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        type="text"
-                        className="form-control"
-                        required
-                    />
-                    <label htmlFor="image" className="mt-4">Imagen</label>
-                    <input
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
-                        type="text"
-                        className="form-control"
-                        required
-                    />
-                </div>
-                <div className="col-md-6">
-                    <label htmlFor="description" className="mt-4">Descripción</label>
-                    <textarea
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        type="text"
-                        className="form-control"
-                        rows="12"
-                        required
-                    />
-                </div>
-                <div className="w-100 border-bottom border my-10 line"></div>
-                <Button backgroundColorClass="btn-primary" text="Aceptar" />
-                <Link to={`/`}><Button backgroundColorClass="btn-secondary" text="Cancelar" /></Link>
-            </form>
-        </main>
-    );
-};
+}
 
 export default Form;
