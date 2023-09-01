@@ -60,16 +60,4 @@ En esta App desarrollamos un CRUD con Laravel conectado a una base de datos MySQ
 5: php artisan db:seed --class=CardSeeder
 
 
- ## Developers
-
-- [@Yana Tolstobrova](https://github.com/yana-tolstobrova)
-  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yana-tolstobrova/)
-
-- [@Sylvia Llorente](https://github.com/Sylviall81)
-  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sylviall81/)
-
-- [@Zoraida Moreno](https://github.com/ZoraidaMorenoCadenas)
-  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zoraida-moreno/)
-
-- [@Marga Mbande](https://www.github.com/octokatherine)
-  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+ 
