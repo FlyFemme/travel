@@ -6,7 +6,7 @@
 
 
 ## <h1>General Information</h1>
-"Happy Travel" is a project by Bootcamp FemCoders where we have been asked to develop a web application, so that people can share the destinations they would love to visit and their reasons for doing so. The goal is for non-authenticated users to be able to view all the dream destinations of other users, and at the same time, an authenticated user can create, edit, and delete their own travel dreams
+"FlyFemme/Happy Travel" Dónde, a partir de un proyecto  ya creado con CRUD con Laravel, plantillas Blade y conectado a una Base de datos MySQL se complementará con un Frontend con React.
 
 # Mokups
 
@@ -62,8 +62,8 @@
   
 ## <h1>Developers</h1>
 ***
-- [Jacinemi Urquiola Alvarez](https://github.com/JacinemiUA) Developer - Scrum Master
-- [Rafaela Silveira](https://github.com/todaunabossa) Developer - Product Owner
-- [Denise Khurlopian](https://github.com/dkhurlop) Developer
+- [Leandra Bujhamer](https://github.com/leandrita) Developer - Scrum Master
+- [Rafaela Silveira](https://github.com/todaunabossa) Developer 
+- [Ana Lucía Silva](https://github.com/alusilco) Developer - Product Owner
 - [Teresa Villa](https://github.com/Teresa1965) Developer
 
