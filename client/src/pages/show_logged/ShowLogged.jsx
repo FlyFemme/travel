@@ -3,8 +3,8 @@ import axios from 'axios';
 import './ShowLogged.css';
 import Navbar from '../../components/navbar/Navbar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Delete from '../../Assets/Delete.svg';
-import Edit from '../../Assets/Edit.svg';
+import Delete from '../../assets/Delete.svg';
+import Edit from '../../assets/Edit.svg';
 
 
 

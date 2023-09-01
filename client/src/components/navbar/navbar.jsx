@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Logo from '../../Assets/Logo.svg';
-import Glass from '../../Assets/Glass.svg';
-import Home from '../../Assets/Home.svg';
-import Avatar from '../../Assets/Avatar.svg';
+import Logo from '../../assets/Logo.svg';
+import Glass from '../../assets/Glass.svg';
+import Home from '../../assets/Home.svg';
+import Avatar from '../../assets/Avatar.svg';
 import './Navbar.css';
 
 

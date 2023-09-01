@@ -1,30 +1,46 @@
-// eslint-disable-next-line
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import '../EditForm/EditForm.css';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import './EditForm.css'
+import Button from "../button/Button";
 
-const endpoint = 'http://localhost:8000/api/card'
+const endpoint = 'http://localhost:8000/api/card/'
 
-const Create = () => {
+const EditForm = () => {
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
     const navigate = useNavigate()
+    const { id } = useParams()
 
-    const store = async (e) => {
+    const update = async (e) => {
         e.preventDefault()
-        await axios.post(endpoint, { image: image, title: title, location: location, description: description })
-        navigate('/')
+        await axios.put(`${endpoint}${id}`, {
+            image: image,
+            title: title,
+            location: location,
+            description: description
+        })
+        navigate(`/show-logged/${id}`)
     }
+
+    useEffect(() => {
+        const getCardById = async () => {
+            const response = await axios.get(`${endpoint}${id}`)
+            setImage(response.data.image)
+            setTitle(response.data.title)
+            setLocation(response.data.location)
+            setDescription(response.data.description)
+        }
+        getCardById()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <main className="container mt-5 d-flex justify-content-center">
-            <form className="custom-form w-form" onSubmit={store}>
-                <h2 className="text-center mb-9 title">Crear destino</h2>
+            <form className="custom-form w-form" onSubmit={update}>
+                <h2 className="text-center mb-9 title">Editar destino</h2>
                 <div className="w-100 border-bottom border my-10 line"></div>
                 <div className="d-flex justify-content-around col">
                     <div className="form-group">
@@ -68,8 +84,8 @@ const Create = () => {
                     </div>
                 </div>
             </form>
-        </main>
+        </main >
     )
-}
+};
 
-export default Create;
+export default EditForm;
