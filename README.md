@@ -35,7 +35,7 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="react" width="40" height="40"/>
 <img src="https://profilinator.rishav.dev/skills-assets/laravel-plain-wordmark.svg" alt="Laravel" width="40" height="40"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="react" width="40" height="40"/>
-<img src="(file:///C:/Users/USER/Downloads/logo-javascript.svg)" alt="js" width="40" height="40"/>
+<img src="(C:/Users/USER/Downloads/logo-javascript.svg)" alt="js" width="40" height="40"/>
 
 
 
