@@ -14,7 +14,7 @@ const routes = [
     },
 
     {
-        path: "/show_logged/:id",
+        path: "/show-logged/:id",
         element: <ShowLogged />,
     },
 
@@ -24,7 +24,7 @@ const routes = [
     },
 
     {
-        path: "/edit",
+        path: "/edit/:id",
         element: <Edit />,
     },
 

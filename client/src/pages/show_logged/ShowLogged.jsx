@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './ShowLogged.css';
 import Navbar from '../../components/navbar/Navbar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Delete from '../../assets/Delete.svg';
 import Edit from '../../assets/Edit.svg';
-
-
-
-
-const endpoint = 'http://localhost:8000/api';
+import { getCardById, deleteCard } from '../../services/Api';
 
 const ShowLogged = () => {
   const [show, setShow] = useState({});
@@ -17,24 +12,29 @@ const ShowLogged = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const getShowInfo = async () => {
-      const response = await axios.get(`${endpoint}/card/${id}`);
-      setShow(response.data);
+    const fetchData = async () => {
+      try {
+        const showData = await getCardById(id);
+        setShow(showData);
+      } catch (error) {
+        console.error('Error fetching show info:', error);
+      }
     };
 
-    getShowInfo();
+    fetchData();
   }, [id]);
 
   // eslint-disable-next-line
   const isUserAuthenticated = true; // aquí se supone que estoy logged //
 
-  const deleteCard = async (id) => {
+  const handleDelete = async () => {
     try {
-      await axios.delete(`${endpoint}/card/${id}`);
-      navigate(`/`)
-    } catch (error) { console.error('Error fetching cards:', error); }
-    // getAllCards()
-  }
+      await deleteCard(show.id);
+      navigate('/');
+    } catch (error) {
+      console.error('Error deleting card:', error);
+    }
+  };
 
   return (
     <>
@@ -65,7 +65,7 @@ const ShowLogged = () => {
                 <div className="d-flex">
                   {/* Espacio para enlaces de edición y formulario de eliminacion */}
                   <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
-                  <button onClick={() => deleteCard(show.id)} className='delete-button'><img src={Delete} class="m-1" alt="" /></button>
+                  <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} class="m-1" alt="" /></button>
                   {/* )} */}
                 </div>
               </div>

@@ -23,6 +23,7 @@ class NewCardController extends Controller
         $card->description = $request->description;
 
         $card->save();
+        return response()->json(['id' => $card->id], 201);
     }
 
     public function show($id)

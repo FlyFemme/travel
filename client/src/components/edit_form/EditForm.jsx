@@ -1,10 +1,8 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './EditForm.css'
 import Button from "../button/Button";
-
-const endpoint = 'http://localhost:8000/api/card/'
+import { updateDestination, getCardById } from "../../services/Api";
 
 const EditForm = () => {
     const [image, setImage] = useState('')
@@ -14,32 +12,41 @@ const EditForm = () => {
     const navigate = useNavigate()
     const { id } = useParams()
 
-    const update = async (e) => {
-        e.preventDefault()
-        await axios.put(`${endpoint}${id}`, {
-            image: image,
-            title: title,
-            location: location,
-            description: description
-        })
-        navigate(`/show-logged/${id}`)
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const destinationData = {
+                image,
+                title,
+                location,
+                description,
+            };
+            await updateDestination(id, destinationData);
+            navigate(`/show-logged/${id}`);
+        } catch (error) {
+            console.error('Error updating destination:', error);
+        }
+    };
 
     useEffect(() => {
-        const getCardById = async () => {
-            const response = await axios.get(`${endpoint}${id}`)
-            setImage(response.data.image)
-            setTitle(response.data.title)
-            setLocation(response.data.location)
-            setDescription(response.data.description)
-        }
-        getCardById()
+        const fetchData = async () => {
+            try {
+                const cardData = await getCardById(id);
+                setImage(cardData.image)
+                setTitle(cardData.title)
+                setLocation(cardData.location)
+                setDescription(cardData.description)
+            } catch (error) {
+                console.error('Error fetching card by ID:', error);
+            }
+        };
+        fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [id]);
 
     return (
         <main className="container mt-5 d-flex justify-content-center">
-            <form className="custom-form w-form" onSubmit={update}>
+            <form className="custom-form w-form" onSubmit={handleSubmit}>
                 <h2 className="text-center mb-9 title">Editar destino</h2>
                 <div className="w-100 border-bottom border my-10 line"></div>
                 <div className="d-flex justify-content-around col">
@@ -69,7 +76,7 @@ const EditForm = () => {
                             required
                         />
                         <Button backgroundColorClass="bttn-primary" text="Aceptar" />
-                        <Link to={`/`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
+                        <Link to={`/show-logged/${id}`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="description" className="mt-4">Descripción</label>

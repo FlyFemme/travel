@@ -1,12 +1,10 @@
 // eslint-disable-next-line
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import Button from '../button/Button';
 import '../edit_form/EditForm.css';
-
-const endpoint = 'http://localhost:8000/api/card'
+import { storeDestination } from '../../services/Api';
 
 const Create = () => {
     const [image, setImage] = useState('')
@@ -15,15 +13,25 @@ const Create = () => {
     const [description, setDescription] = useState('')
     const navigate = useNavigate()
 
-    const store = async (e) => {
-        e.preventDefault()
-        await axios.post(endpoint, { image: image, title: title, location: location, description: description })
-        navigate('/')
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const destinationData = {
+                image,
+                title,
+                location,
+                description,
+            };
+            const id = await storeDestination(destinationData);
+            navigate(`/show-logged/${id}`);
+        } catch (error) {
+            console.error('Error creating destination:', error);
+        }
+    };
 
     return (
         <main className="container mt-5 d-flex justify-content-center">
-            <form className="custom-form w-form" onSubmit={store}>
+            <form className="custom-form w-form" onSubmit={handleSubmit}>
                 <h2 className="text-center mb-9 title">Crear destino</h2>
                 <div className="w-100 border-bottom border my-10 line"></div>
                 <div className="d-flex justify-content-around col">
