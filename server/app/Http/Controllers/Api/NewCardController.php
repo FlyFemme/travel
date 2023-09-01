@@ -17,10 +17,10 @@ class NewCardController extends Controller
     public function store(Request $request)
     {
         $card = new Card();
-        $card->image = $request->input('image');
-        $card->title = $request->input('title');
-        $card->location = $request->input('location');
-        $card->description = $request->input('description');
+        $card->image = $request->image;
+        $card->title = $request->title;
+        $card->location = $request->location;
+        $card->description = $request->description;
 
         $card->save();
     }
