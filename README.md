@@ -5,8 +5,8 @@
 </div>
 
 
-## <h1>Información General</h1>
-"FlyFemme/Happy Travel" es un proyecto del Bootcamp FemCoders de Factoría F5 dónde, a partir de un proyecto  ya creado con CRUD, Laravel, plantillas Blade y conectado a una Base de datos MySQL, se complementará con un Frontend con React.
+## <h1>General Information</h1>
+"FlyFemme/Happy Travel" is a project from Factoría F5's FemCoders Bootcamp where, based on a project already created with CRUD, Laravel, Blade templates and connected to a MySQL Database, it will be complemented with a Frontend with React.
 Documentación del proyecto Inicial: https://factoriaf5.notion.site/Happy-Travel-ff4dab653ede4302aa248adbf345c6e8
 
 
@@ -20,7 +20,7 @@ Documentación del proyecto Inicial: https://factoriaf5.notion.site/Happy-Travel
 <img width="659" alt="Happy Travel Descktop 2" src="https://github.com/Trip-Coders/happy-travel/assets/132339878/8394611d-9bb5-4236-9fea-0bab0bd16ef0">
 <img width="449" alt="Happy Travel Desktop 3" src="https://github.com/Trip-Coders/happy-travel/assets/132339878/753a5bd7-b322-486a-a625-c068018d2e84">
 
-Puedes consultar el UI en https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyTravel?type=design&node-id=0-1&mode=design
+You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyTravel?type=design&node-id=0-1&mode=design
 
 
 
@@ -86,5 +86,6 @@ Puedes consultar el UI en https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/Happ
 - [Leandra Bujhamer](https://github.com/leandrita) Developer - Scrum Master
 - [Rafaela Silveira](https://github.com/todaunabossa) Developer 
 - [Ana Lucía Silva](https://github.com/alusilco) Developer - Product Owner
+- [Rosa M. Rubio](https://github.com/rosa-rubio) Developer
 - [Teresa Villa](https://github.com/Teresa1965) Developer
 
