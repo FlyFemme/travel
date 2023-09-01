@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Create.css'
 
 
-
 const Form = () => {
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
@@ -46,11 +45,11 @@ const Form = () => {
             }));
 
             setCountries(countryOptions);
-            setIsLoading(false);
         } catch (error) {
             console.error('Error fetching countries:', error);
         }
     };
+
 
 return (
             <div className='square'>
@@ -73,14 +72,19 @@ return (
                             <div className='mb-3'>
                                 <label className='form-label'>Ubicación</label>
                                 <select
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                    className='form-control'
-                                    placeholder="Selecciona una ubicación"
-                                    required
-                                >
-                                    {/* opciones */}
-                                </select>
+                                value={location}
+                                onChange={(e) => setLocation(e.target.value)}
+                                className="form-control"
+                                id="ubicacion"
+                                required
+                            >
+                                <option value="">Seleccione una ubicación</option>
+                                {countries.map(country => (
+                                    <option key={country.code} value={country.code}>
+                                        {country.name}
+                                    </option>
+                                ))}
+                            </select>
                             </div>
                             <div className='mb-3'>
                                 <label className='form-label'>Imagen</label>
