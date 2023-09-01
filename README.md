@@ -5,8 +5,10 @@
 </div>
 
 
-## <h1>General Information</h1>
+## <h1>Información General</h1>
 "FlyFemme/Happy Travel" es un proyecto del Bootcamp FemCoders de Factoría F5 dónde, a partir de un proyecto  ya creado con CRUD, Laravel, plantillas Blade y conectado a una Base de datos MySQL, se complementará con un Frontend con React.
+Documentación del proyecto Inicial: https://factoriaf5.notion.site/Happy-Travel-ff4dab653ede4302aa248adbf345c6e8
+
 
 # Mokups
 
