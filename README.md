@@ -29,6 +29,9 @@
 <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="react" width="40" height="40"/>
 <img src="https://profilinator.rishav.dev/skills-assets/laravel-plain-wordmark.svg" alt="Laravel" width="40" height="40"/>
 
+
+
+
 </div>
 
 ## <h1>Tools</h1>
