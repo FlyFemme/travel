@@ -1,6 +1,6 @@
 # travel
 
-<div align="center">
+<div align="center">.
   <h1> Happy Travel</h1>
 </div>
 
