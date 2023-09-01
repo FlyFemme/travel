@@ -6,7 +6,7 @@
 
 
 ## <h1>General Information</h1>
-"FlyFemme/Happy Travel" Dónde, a partir de un proyecto  ya creado con CRUD con Laravel, plantillas Blade y conectado a una Base de datos MySQL se complementará con un Frontend con React
+"FlyFemme/Happy Travel" es un proyecto del Bootcamp FemCoders de Factoría F5 dónde, a partir de un proyecto  ya creado con CRUD, Laravel, plantillas Blade y conectado a una Base de datos MySQL, se complementará con un Frontend con React.
 
 # Mokups
 
