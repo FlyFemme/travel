@@ -4,7 +4,7 @@ import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
-const endpoint = 'http://localhost:8000/api';
+const endpoint = 'http://localhost:8000/api/cards';
 
 const Home = () => {
   const [cards, setCards] = useState([]);
