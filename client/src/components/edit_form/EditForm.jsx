@@ -1,30 +1,53 @@
-// eslint-disable-next-line
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import '../EditForm/EditForm.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import './EditForm.css'
+import Button from "../button/Button";
+import { updateDestination, getCardById } from "../../services/Api";
 
-const endpoint = 'http://localhost:8000/api/card'
-
-const Create = () => {
+const EditForm = () => {
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
     const navigate = useNavigate()
+    const { id } = useParams()
 
-    const store = async (e) => {
-        e.preventDefault()
-        await axios.post(endpoint, { image: image, title: title, location: location, description: description })
-        navigate('/')
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const destinationData = {
+                image,
+                title,
+                location,
+                description,
+            };
+            await updateDestination(id, destinationData);
+            navigate(`/show-logged/${id}`);
+        } catch (error) {
+            console.error('Error updating destination:', error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const cardData = await getCardById(id);
+                setImage(cardData.image)
+                setTitle(cardData.title)
+                setLocation(cardData.location)
+                setDescription(cardData.description)
+            } catch (error) {
+                console.error('Error fetching card by ID:', error);
+            }
+        };
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]);
 
     return (
         <main className="container mt-5 d-flex justify-content-center">
-            <form className="custom-form w-form" onSubmit={store}>
-                <h2 className="text-center mb-9 title">Crear destino</h2>
+            <form className="custom-form w-form" onSubmit={handleSubmit}>
+                <h2 className="text-center mb-9 title">Editar destino</h2>
                 <div className="w-100 border-bottom border my-10 line"></div>
                 <div className="d-flex justify-content-around col">
                     <div className="form-group">
@@ -53,7 +76,7 @@ const Create = () => {
                             required
                         />
                         <Button backgroundColorClass="bttn-primary" text="Aceptar" />
-                        <Link to={`/`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
+                        <Link to={`/show-logged/${id}`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="description" className="mt-4">Descripción</label>
@@ -68,8 +91,8 @@ const Create = () => {
                     </div>
                 </div>
             </form>
-        </main>
+        </main >
     )
-}
+};
 
-export default Create;
+export default EditForm;

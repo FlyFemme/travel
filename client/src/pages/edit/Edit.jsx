@@ -1,5 +1,5 @@
 import Navbar from '../../components/navbar/Navbar';
-import EditForm from '../../components/EditForm/EditForm';
+import EditForm from '../../components/edit_form/EditForm';
 import './Edit.css';
 
 const Edit = () => {
