@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import Button from '../button/Button';
-import '../edit_form/EditForm.css';
+import '../create_form/CreateForm.css';
 import { storeDestination } from '../../services/Api';
 
 const Create = () => {
@@ -11,6 +11,12 @@ const Create = () => {
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
+    const [errors, setErrors] = useState({
+        image: null,
+        title: null,
+        location: null,
+        description: null
+    })
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -22,10 +28,25 @@ const Create = () => {
                 location,
                 description,
             };
-            const id = await storeDestination(destinationData);
-            navigate(`/show-logged/${id}`);
+
+            const response = await storeDestination(destinationData);
+
+            // console.log('Response:', response);
+
+            if (response.errors) {
+                console.log('Errors:', response.errors);
+            } else {
+                // console.log('No errors, navigating...');
+                navigate(`/show-logged/${response.id}`);
+            }
         } catch (error) {
             console.error('Error creating destination:', error);
+            const errors = error.response.data.errors
+            // const image = null
+            // if(errors.image){
+            //     image = errors.image[0]
+            // }
+            setErrors({ image: errors.image && errors.image[0], title: errors.title && errors.title[0], location: errors.location && errors.location[0], description: errors.description && errors.description[0], });
         }
     };
 
@@ -36,43 +57,77 @@ const Create = () => {
                 <div className="w-100 border-bottom border my-10 line"></div>
                 <div className="d-flex justify-content-around col">
                     <div className="form-group">
-                        <label htmlFor="title" className="mt-4">Título</label>
+                        <label htmlFor="title" className="mb-1 mt-4">Título</label>
                         <input
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             type="text"
+                            name="title"
                             className="form-control"
-                            required
+
                         />
-                        <label htmlFor="location" className="mt-4">Ubicación</label>
+
+                        {
+                            errors.title && <div className="alerts">
+                                <p>{errors.title}</p>
+                            </div>
+                        }
+
+                        <label htmlFor="location" className="mb-1 mt-4">Ubicación</label>
                         <input
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
                             type="text"
+                            name="location"
                             className="form-control"
-                            required
+
                         />
-                        <label htmlFor="image" className="mt-4">Imagen</label>
+
+                        {
+                            errors.location && <div className="alerts">
+                                <p>{errors.location}</p>
+                            </div>
+                        }
+
+                        <label htmlFor="image" className="mb-1 mt-4">Imagen</label>
                         <input
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
                             type="text"
+                            name="image"
                             className="form-control"
-                            required
+
                         />
-                        <Button backgroundColorClass="bttn-primary" text="Aceptar" />
-                        <Link to={`/`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
+
+                        {
+                            errors.image && <div className="alerts">
+                                <p>{errors.image}</p>
+                            </div>
+                        }
+
+                        <div className="d-flex gap">
+                            <Button backgroundColorClass="bttn-primary" text="Aceptar" />
+                            <Link to={`/`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
+                        </div>
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="description" className="mt-4">Descripción</label>
+                        <label htmlFor="description" className="mb-1 mt-4">Descripción</label>
                         <textarea
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             type="text"
+                            name="description"
                             className="form-control"
                             rows="12"
-                            required
+
                         />
+
+                        {
+                            errors.description && <div className="alerts">
+                                <p>{errors.description}</p>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </form>

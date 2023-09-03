@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Card;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class NewCardController extends Controller
@@ -16,6 +17,18 @@ class NewCardController extends Controller
 
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'image' => 'required',
+            'title' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
         $card = new Card();
         $card->image = $request->image;
         $card->title = $request->title;
@@ -23,6 +36,7 @@ class NewCardController extends Controller
         $card->description = $request->description;
 
         $card->save();
+
         return response()->json(['id' => $card->id], 201);
     }
 
@@ -34,6 +48,18 @@ class NewCardController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $validator = Validator::make($request->all(), [
+            'image' => 'required',
+            'title' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
         $card = Card::findOrFail($request->id);
         $card->image = $request->image;
         $card->title = $request->title;

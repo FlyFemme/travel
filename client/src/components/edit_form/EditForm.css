@@ -87,3 +87,12 @@ label{
     transform: translateY(30%);
     width: 4rem;
 }
+
+.alerts{
+    margin: 0.5rem;
+    color: #dc3545;
+}
+
+.gap{
+    gap: 1rem;
+}

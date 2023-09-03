@@ -16,10 +16,10 @@ export async function getCardById(id) {
     }
 }
 
-export async function storeDestination(id) {
+export async function storeDestination(destionationData) {
     try {
-        const response = await axios.post(`${endpoint}/card`, id);
-        return response.data.id;
+        const response = await axios.post(`${endpoint}/card`, destionationData);
+        return response.data;
     } catch (error) {
         throw error;
     }
@@ -27,7 +27,8 @@ export async function storeDestination(id) {
 
 export async function updateDestination(id, destinationData) {
     try {
-        await axios.put(`${endpoint}/card/${id}`, destinationData);
+        const response = await axios.put(`${endpoint}/card/${id}`, destinationData);
+        return response.data;
     } catch (error) {
         throw error;
     }
