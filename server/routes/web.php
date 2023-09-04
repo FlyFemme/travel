@@ -28,3 +28,12 @@ Route::get('/searchGuest', [SearchGuestController::class, 'searchGuest'])->name(
 
     
 require __DIR__.'/auth.php';
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
