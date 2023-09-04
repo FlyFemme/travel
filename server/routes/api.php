@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewCardController;
+use App\Http\Controllers\Api\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,16 @@ Route::prefix('api')->group(function () {
     Route::get('/card/{id}', [NewCardController::class, 'show']);
     Route::put('/card/{id}', [NewCardController::class, 'update']);
     Route::delete('/card/{id}', [NewCardController::class, 'destroy']);
+ 
+    Route::get('/login', [AuthController::class, 'login']);
+    Route::get('/register', [RegisterController::class, 'register'])->name('register');
+
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
 });
 
-Route::resource('cards', NewCardController::class);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
