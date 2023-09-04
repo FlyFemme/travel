@@ -1,5 +1,5 @@
-import Navbar from '../../components/Navbar/Navbar';
-import SigninForm from '../../components/SigninForm/SigninForm';
+import Navbar from '../../components/navbar/Navbar';
+import SigninForm from '../../components/signinForm/SigninForm';
 import './Signin.css';
 
 const Signin = () => {
