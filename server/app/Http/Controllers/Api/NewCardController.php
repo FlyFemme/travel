@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Card;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class NewCardController extends Controller
@@ -16,13 +17,27 @@ class NewCardController extends Controller
 
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'image' => 'required',
+            'title' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
         $card = new Card();
-        $card->image = $request->input('image');
-        $card->title = $request->input('title');
-        $card->location = $request->input('location');
-        $card->description = $request->input('description');
+        $card->image = $request->image;
+        $card->title = $request->title;
+        $card->location = $request->location;
+        $card->description = $request->description;
 
         $card->save();
+
+        return response()->json(['id' => $card->id], 201);
     }
 
     public function show($id)
@@ -31,13 +46,25 @@ class NewCardController extends Controller
         return $card;
     }
 
-    public function update(Request $request, Card $card)
+    public function update(Request $request, $id)
     {
 
-        $card->image = $request->input('image');
-        $card->title = $request->input('title');
-        $card->location = $request->input('location');
-        $card->description = $request->input('description');
+        $validator = Validator::make($request->all(), [
+            'image' => 'required',
+            'title' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $card = Card::findOrFail($request->id);
+        $card->image = $request->image;
+        $card->title = $request->title;
+        $card->location = $request->location;
+        $card->description = $request->description;
 
         $card->save();
         return $card;

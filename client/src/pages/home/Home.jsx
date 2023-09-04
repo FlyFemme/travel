@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './home.css';
+import './Home.css';
 import Navbar from '../../components/navbar/Navbar';
 import { Link } from 'react-router-dom';
-
-const endpoint = 'http://localhost:8000/api/cards';
+import { getAllCards } from '../../services/Api';
 
 const Home = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getAllCards();
+    fetchCards();
   }, []);
 
-  const getAllCards = async () => {
+  const fetchCards = async () => {
     try {
-      const response = await axios.get(`${endpoint}/cards`);
-      setCards(response.data);
-    } catch (error) {console.error('Error fetching cards:', error);}
+      const cardsData = await getAllCards();
+      setCards(cardsData);
+    } catch (error) {
+      console.error('Error fetching cards:', error);
+    }
   };
 
   return (

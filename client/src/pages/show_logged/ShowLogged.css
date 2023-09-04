@@ -1,0 +1,16 @@
+.show-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .delete-button{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit; 
+    color: inherit;
+}

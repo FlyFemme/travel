@@ -1,26 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './ShowLogged.css';
 import Navbar from '../../components/navbar/Navbar';
-import { useParams } from 'react-router-dom';
-
-
-const endpoint = 'http://localhost:8000/api';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Delete from '../../assets/Delete.svg';
+import Edit from '../../assets/Edit.svg';
+import { getCardById, deleteCard } from '../../services/Api';
 
 const ShowLogged = () => {
   const [show, setShow] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const getShowInfo = async () => {
-      const response = await axios.get(`${endpoint}/card/${id}`);
-      setShow(response.data);
+    const fetchData = async () => {
+      try {
+        const showData = await getCardById(id);
+        setShow(showData);
+      } catch (error) {
+        console.error('Error fetching show info:', error);
+      }
     };
 
-    getShowInfo();
+    fetchData();
   }, [id]);
 
+  // eslint-disable-next-line
   const isUserAuthenticated = true; // aquí se supone que estoy logged //
+
+  const handleDelete = async () => {
+    try {
+      await deleteCard(show.id);
+      navigate('/');
+    } catch (error) {
+      console.error('Error deleting card:', error);
+    }
+  };
 
   return (
     <>
@@ -47,23 +61,22 @@ const ShowLogged = () => {
                 <h3 style={{ color: '#FF0060', fontWeight: 'bold' }}>
                   {show.title}
                 </h3>
+                {/* {isUserAuthenticated && ( */}
                 <div className="d-flex">
-                  {isUserAuthenticated && (
-                    <>
-                      {/* Espacio para enlaces de edición y formulario de eliminacion */}
-                    </>
-                  )}
+                  {/* Espacio para enlaces de edición y formulario de eliminacion */}
+                  <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
+                  <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} class="m-1" alt="" /></button>
+                  {/* )} */}
                 </div>
               </div>
               <p style={{ color: '#FF0060' }}>{show.location}</p>
               <p className="text-primary">{show.description}</p>
             </div>
           </div>
-        </div>
-      </div>
-
+        </div >
+      </div >
     </>
-  );
-};
+  )
+}
 
-export default ShowLogged;
+export default ShowLogged
