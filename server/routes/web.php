@@ -1,16 +1,18 @@
 <?php
+
 use App\Http\Controllers\FormAddNewCardController;
-
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SearchGuestController;
+use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
 
+Route::get('/', function () {
+    return view('home');
+});
 
-Route::get('/', [CardController::class, 'index'])->name('cards');
 
 Route::get('/dashboard', [FormAddNewCardController::class, 'dashboard'])
     ->middleware(['auth'])
