@@ -6,7 +6,7 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SearchGuestController;
 use App\Http\Controllers\RolController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
@@ -42,10 +42,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//grupo de rutas protegidas para los controladores
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
-    Route::resource('usuarios', UsuarioController::class);
+    Route::resource('usuarios', UsuariosController::class);
     Route::resource('blogs', BlogController::class);
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
