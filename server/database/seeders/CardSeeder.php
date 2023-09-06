@@ -17,6 +17,8 @@ class CardSeeder extends Seeder
     public function run()
     {
 
+        
+
         $cards = [
             [
                 'image' => 'https://upload.wikimedia.org/wikipedia/commons/2/23/Garita_morro_s.jpg',
@@ -94,7 +96,15 @@ class CardSeeder extends Seeder
 
             ];
           
-        DB::table('cards')->insert($cards);
-        
+        DB::table('cards')->insert([
+            'image' => 'https://s1.abcstatics.com/media/viajar/2018/04/25/galapagos-kK6B--510x349@abc.jpg',
+            'title' => 'Machu Pichu, tribus e historia',
+            'location' => 'Perú',
+            'description' => 'Pasear por el Camino Inca es un intenso viaje a siglos pasados y a las raíces de nuestra historia que permanecen vivas hasta el día de hoy'
+        ]);
+
+        \App\Models\Card::factory(30)->create();
+
+
     }
 }
