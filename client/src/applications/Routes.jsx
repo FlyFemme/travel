@@ -29,7 +29,7 @@ const routes = [
     },
 
     {
-        path: "/signin",
+        path: "/register",
         element: <Signin />,
     },
 

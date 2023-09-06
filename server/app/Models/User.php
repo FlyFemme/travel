@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -41,11 +42,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
-    public function form_add_new_cards(): HasMany
-    {
-        return $this->hasMany(FormAddNewCard::class);
-    }
-
+    // public function form_add_new_cards(): HasMany
+    // {
+    //     return $this->hasMany(FormAddNewCard::class);
+    // }
 }

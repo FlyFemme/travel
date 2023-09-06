@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewCardController;
+use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,14 +16,19 @@ use App\Http\Controllers\Api\NewCardController;
 |
 */
 
-Route::controller(NewCardController::class)->group(function () {
-    Route::get('/cards', 'index');
-    Route::post('/card', 'store');
-    Route::get('/card/{id}', 'show');
-    Route::put('/card/{id}', 'update');
-    Route::delete('/card/{id}', 'destroy');
-});
+Route::middleware('cors')->group(function () {
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::controller(NewCardController::class)->group(function () {
+        Route::get('/cards', 'index');
+        Route::post('/card', 'store');
+        Route::get('/card/{id}', 'show');
+        Route::put('/card/{id}', 'update');
+        Route::delete('/card/{id}', 'destroy');
+    });
+
+    // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    //     return $request->user();
+    // });
+    Route::post('/register', [RegisterController::class, 'register']);
+    Route::post('/login', [LoginController::class, 'login']);
 });
