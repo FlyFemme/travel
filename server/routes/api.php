@@ -22,6 +22,17 @@ Route::controller(NewCardController::class)->group(function () {
     Route::delete('/card/{id}', 'destroy');
 });
 
+//
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/register', 'register');
+    Route::post('/login', 'login');
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+//
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
