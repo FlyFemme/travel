@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Card;
 
 class User extends Authenticatable
 {
@@ -44,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function form_add_new_cards(): HasMany
+    public function card()
     {
-        return $this->hasMany(FormAddNewCard::class);
+        return $this->hasMany(Card::class);
     }
 }

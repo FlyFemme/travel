@@ -77,7 +77,7 @@ const SigninForm = () => {
                     <input
                         onChange={handleInput}
                         value={registerInput.password}
-                        type="text"
+                        type="password"
                         name="password"
                         className="form-control placeholder-size"
                     />

@@ -67,6 +67,7 @@ class CardController extends Controller
         $card->description = $request->description;
 
         $card->save();
+
         return $card;
     }
 

@@ -12,4 +12,9 @@ class Card extends Model
     protected $fillable = ['title', 'location', 'image', 'description'];
 
     protected $hidden = ["created_at", "updated_at"];
+
+    public function user()
+    {
+        return $this->belongsTo(Card::class);
+    }
 }
