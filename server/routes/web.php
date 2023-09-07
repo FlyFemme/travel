@@ -40,8 +40,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 //y creamos un grupo de rutas protegidas para los controladores
 Route::group(['middleware' => ['auth']], function() {
