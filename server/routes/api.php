@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewCardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,12 +30,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+Route::get('/', function () {
+    return view('home');
+});
 
-Route::get('/usuarios', [UsuarioController::class, 'index']);
 
+
+Auth::routes();
+
+
+//y creamos un grupo de rutas protegidas para los controladores
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
-    Route::resource('usuarios', UsuariosController::class);
-    Route::resource('blogs', BlogController::class);
+    Route::resource('usuarios', UsuarioController::class);
+
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

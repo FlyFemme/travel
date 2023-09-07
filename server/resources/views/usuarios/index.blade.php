@@ -1,141 +1,59 @@
-<?php
+@extends('layouts.app')
 
-namespace App\Http\Controllers;
+@section('content')
+<section class="section">
+  <div class="section-header">
+      <h3 class="page__heading">Usuarios</h3>
+  </div>
+      <div class="section-body">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
 
-use Illuminate\Http\Request;
+                            <table class="table table-striped mt-2">
+                              <thead style="background-color:#6777ef">
+                                  <th style="display: none;">ID</th>
+                                  <th style="color:#fff;">Nombre</th>
+                                  <th style="color:#fff;">E-mail</th>
+                                  <th style="color:#fff;">Rol</th>
+                                  <th style="color:#fff;">Acciones</th>
+                              </thead>
+                              <tbody>
+                                @foreach ($usuarios as $usuario)
+                                  <tr>
+                                    <td style="display: none;">{{ $usuario->id }}</td>
+                                    <td>{{ $usuario->name }}</td>
+                                    <td>{{ $usuario->email }}</td>
+                                    <td>
+                                      @if(!empty($usuario->getRoleNames()))
+                                        @foreach($usuario->getRoleNames() as $rolNombre)
+                                          <h5><span class="badge badge-dark">{{ $rolNombre }}</span></h5>
+                                        @endforeach
+                                      @endif
+                                    </td>
 
-//agregamos lo siguiente
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Arr;
+                                    <td>
+                                      <a class="btn btn-info" href="{{ route('usuarios.edit',$usuario->id) }}">Editar</a>
 
-class UsuarioController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        //Sin paginación
-        /* $usuarios = User::all();
-        return view('usuarios.index',compact('usuarios')); */
+                                      {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
+                                          {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                      {!! Form::close() !!}
+                                    </td>
+                                  </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                            <!-- Centramos la paginacion a la derecha -->
+                          <div class="pagination justify-content-end">
+                            {!! $usuarios->links() !!}
+                          </div>
 
-        //Con paginación
-        $usuarios = User::paginate(5);
-        return view('usuarios.index',compact('usuarios'));
-
-        //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $usuarios->links() !!}
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //aqui trabajamos con name de las tablas de users
-        $roles = Role::pluck('name','name')->all();
-        return view('usuarios.crear',compact('roles'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
-
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-
-        return redirect()->route('usuarios.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
-
-        return view('usuarios.editar',compact('user','roles','userRole'));
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
-        ]);
-
-        $input = $request->all();
-        if(!empty($input['password'])){
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));
-        }
-
-        $user = User::find($id);
-        $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
-
-        $user->assignRole($request->input('roles'));
-
-        return redirect()->route('usuarios.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        User::find($id)->delete();
-        return redirect()->route('usuarios.index');
-    }
-}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+@endsection

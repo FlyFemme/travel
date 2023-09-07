@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
 
-class UsuariosController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
