@@ -1,0 +1,12 @@
+.form-check-input{
+    color: var(--color-background);
+}
+
+.bttn.bttn-primary {
+    background-color: var(--color-primary);
+}
+
+.bttn.bttn-secondary {
+    background-color: var(--color-secondary);
+}
+

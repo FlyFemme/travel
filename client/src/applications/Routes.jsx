@@ -5,6 +5,8 @@ import Edit from '../pages/edit/Edit';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
 import Create from '../pages/create/Create';
+import Roles from '../pages/roles/RolPage';
+
 
 
 const routes = [
@@ -37,6 +39,17 @@ const routes = [
         path: "/login",
         element: <Login />,
     },
+
+    {
+        path: "/login",
+        element: <Login />,
+    },
+
+    {
+        path:"/roles",
+        element:<Roles />,
+    }
+
 ]
 
 const router = createBrowserRouter(routes);
