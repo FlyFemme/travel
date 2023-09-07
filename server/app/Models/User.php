@@ -41,6 +41,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        
     ];
 
     public function form_add_new_cards(): HasMany
