@@ -14,6 +14,7 @@ const Home = () => {
   const fetchCards = async () => {
     try {
       const cardsData = await getAllCards();
+      // console.log('cardsData:', cardsData);
       setCards(cardsData);
     } catch (error) {
       console.error('Error fetching cards:', error);

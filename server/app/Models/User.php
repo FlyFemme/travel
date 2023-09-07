@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -47,5 +48,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(FormAddNewCard::class);
     }
-
 }
