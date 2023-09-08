@@ -24,9 +24,6 @@ const ShowLogged = () => {
     fetchData();
   }, [id]);
 
-  // eslint-disable-next-line
-  const isUserAuthenticated = true; // aquí se supone que estoy logged //
-
   const handleDelete = async () => {
     try {
       await deleteCard(show.id);
@@ -35,6 +32,22 @@ const ShowLogged = () => {
       console.error('Error deleting card:', error);
     }
   };
+
+  var buttons = '';
+  if (!localStorage.getItem('auth_token')) {
+    buttons = (
+      <>
+      </>
+    );
+  }
+  else {
+    buttons = (
+      <div className="d-flex">
+        <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
+        <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} className="m-1" alt="" /></button>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -61,13 +74,7 @@ const ShowLogged = () => {
                 <h3 style={{ color: '#FF0060', fontWeight: 'bold' }}>
                   {show.title}
                 </h3>
-                {/* {isUserAuthenticated && ( */}
-                <div className="d-flex">
-                  {/* Espacio para enlaces de edición y formulario de eliminacion */}
-                  <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
-                  <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} class="m-1" alt="" /></button>
-                  {/* )} */}
-                </div>
+                {buttons}
               </div>
               <p style={{ color: '#FF0060' }}>{show.location}</p>
               <p className="text-primary">{show.description}</p>
