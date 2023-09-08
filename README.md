@@ -60,7 +60,7 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 - [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : versión html5
 - [CSS](https://developer.mozilla.org/es/docs/Web/CSS): versión css3
 - [Visual Studio Code](https://code.visualstudio.com/): Version 1.79.
-- [Testing Library React] (https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
+- [Testing Library React](https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
 
 ## <h1>Installation</h1>
 ***
