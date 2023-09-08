@@ -79,12 +79,14 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 - for view the project in your browser, execute the command: **php artisan serve**
 
 ## Front
-- To start the proyect, write in the terminal. - npm i
-- To get the API: - npm install axios
-- To install the library that we used for the popup: - npm install @mui/material @emotion/react @emotion/styled
-- To install json-server: - npm install json-server --save-dev
-- To run at the same time react-app and json-server in localhost: - npm install concurrently --save-dev
-- To see the proyect: - npm start
+- To start the proyect, write in the terminal.**- npm i**
+- To get the API: **- npm install axios**
+- To install the library that we used for the popup: **- npm install @mui/material @emotion/react @emotion/styled**
+- To install json-server: **- npm install json-server --save-dev**
+- To run at the same time react-app and json-server in localhost: **- npm install concurrently --save-dev**
+- To install React testing Library **npm install --save-dev @testing-library/react**
+- To see the proyect: **- npm start**
+  
 
   
   
