@@ -57,10 +57,11 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 
 ### Versions used in this project
 ***
-- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : versión html5
-- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): versión css3
-- [Visual Studio Code](https://code.visualstudio.com/): Version 1.79.
+- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : version html5
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): version css3
+- [Visual Studio Code](https://code.visualstudio.com/): version 1.79.
 - [Testing Library React](https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
+- [php](https://www.php.net/):version 8.2
 
 ## <h1>Installation</h1>
 ***
