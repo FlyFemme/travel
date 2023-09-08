@@ -52,13 +52,15 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 <img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/>
+<img src="https://testing-library.com/img/octopus-128x128.png" alt="github" width="40" heigth="40"/>
 </div>
 
-### A list of another technologies used in this proyect
+### Versions used in this project
 ***
 - [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : versión html5
 - [CSS](https://developer.mozilla.org/es/docs/Web/CSS): versión css3
 - [Visual Studio Code](https://code.visualstudio.com/): Version 1.79.
+- [Testing Library React] (https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
 
 ## <h1>Installation</h1>
 ***
