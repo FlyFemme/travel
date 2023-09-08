@@ -61,7 +61,8 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 - [CSS](https://developer.mozilla.org/es/docs/Web/CSS): version css3
 - [Visual Studio Code](https://code.visualstudio.com/): version 1.79.
 - [Testing Library React](https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
-- [php](https://www.php.net/):version 8.2
+- [php](https://www.php.net/): version 8.2
+- [Jest](https://jestjs.io/es): version 27.5
 
 ## <h1>Installation</h1>
 ***
