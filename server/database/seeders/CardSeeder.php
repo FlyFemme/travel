@@ -1,14 +1,13 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Card;
 
 
 class CardSeeder extends Seeder
-{   
+{
     /**
      * Run the database seeds.
      *
@@ -24,7 +23,7 @@ class CardSeeder extends Seeder
                 'location' => 'Puerto Rico',
                 'description' => 'Playa, sol y Arena'
             ],
-            
+
             [
                 'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Everest_kalapatthar.jpg/800px-Everest_kalapatthar.jpg',
                 'title' => 'Extreme travel',
@@ -44,7 +43,7 @@ class CardSeeder extends Seeder
                 'location' => 'Kenia',
                 'description' => 'Sientes la llamada de la naturaleza mientras elefantes y leones vagan libremente a tu alrededor. Esta experiencia vale absolutamente la pena cada segundo y una aventura para toda la vida'
             ],
-            
+
             [
                 'image' => 'https://s1.abcstatics.com/media/viajar/2018/04/25/rodas-kK6B--510x349@abc.jpg',
                 'title' => 'Escapada Soñada',
@@ -64,7 +63,7 @@ class CardSeeder extends Seeder
                 'title' => 'Auroras Boreales y naturaleza',
                 'location' => 'Islandia',
                 'description' => 'Difícilmente hay un país en el mundo que luzca tantos paisajes trascendentales en tan poco tiempo. La belleza te atrae. La diversidad hace que nunca quieras irte'
-            
+
             ],
             [
                 'image' => 'https://s3.abcstatics.com/media/viajar/2018/04/25/maldivas-kK6B--510x349@abc.jpg',
@@ -92,9 +91,8 @@ class CardSeeder extends Seeder
                 'description' => 'Pasear por el Camino Inca es un intenso viaje a siglos pasados y a las raíces de nuestra historia que permanecen vivas hasta el día de hoy'
             ]
 
-            ];
-          
+        ];
+
         DB::table('cards')->insert($cards);
-        
     }
 }

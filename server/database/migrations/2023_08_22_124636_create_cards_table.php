@@ -17,8 +17,10 @@ class CreateCardsTable extends Migration
             $table->id();
             $table->string('image');
             $table->string('title');
-            $table->string('location');  
-            $table->string('description');  
+            $table->string('location');
+            $table->string('description');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

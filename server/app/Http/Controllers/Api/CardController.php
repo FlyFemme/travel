@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class NewCardController extends Controller
+class CardController extends Controller
 {
     public function index()
     {
@@ -67,6 +67,7 @@ class NewCardController extends Controller
         $card->description = $request->description;
 
         $card->save();
+
         return $card;
     }
 
