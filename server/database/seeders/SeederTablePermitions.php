@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 //agregamos el modelo de permisos de spatie
 use Spatie\Permission\Models\Permission;
 
-class SeederTablePermitions extends Seeder
+class SeederTablaPermisos extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,12 +17,13 @@ class SeederTablePermitions extends Seeder
     public function run()
     {
         $permisos = [
-            
+            //Operaciones sobre tabla roles
             'ver-rol',
             'crear-rol',
             'editar-rol',
             'borrar-rol',
 
+            //Operacions sobre tabla blogs
             'ver-blog',
             'crear-blog',
             'editar-blog',
