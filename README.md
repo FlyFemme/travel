@@ -7,7 +7,7 @@
 
 
 ## <h1>General Information</h1>
-"FlyFemme/Happy Travel" is a project from Factoría F5's FemCoders Bootcamp where, based on a project already created with CRUD, Laravel, Blade templates and connected to a MySQL Database, it will be complemented with a Frontend with React.
+"FlyFemme/Happy Travel" is a project from Factoría F5's FemCoders Bootcamp where,, based on a project already created with CRUD, Laravel, Blade templates and connected to a MySQL Database, it will be complemented with a Frontend with React.
 Initial project documentation:: https://factoriaf5.notion.site/Happy-Travel-ff4dab653ede4302aa248adbf345c6e8
 
 
