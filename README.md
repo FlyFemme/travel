@@ -69,22 +69,24 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 ***
   
 - Clone this repository: https://github.com/Trip-Coders/happy-travel.git
-- Place the project folder into the projects directory of your XAMPP installation
-- Set up the database.
+- Place the project folder into the projects directory of your XAMPP/MAMP installation
+- Create the database called **"cards"**.
 - Open the project in your code editor.
   
 ## Back
-- Inside the "laravel" folder,
+- Inside the "travel/server" folder
 - Open a terminal and run **"composer install"**
-- for view the project in your browser, execute the command: **php artisan serve**
+- **php artisan migrate**
+- **php artisan db:seed --class=CardSeeder**
+- For view the project in your browser, execute the command: **php artisan serve**
+- Roles gestion: **composer require spatie/laravel-permission**
 
 ## Front
 - To start the proyect, write in the terminal.**- npm i**
 - To get the API: **- npm install axios**
-- To install the library that we used for the popup: **- npm install @mui/material @emotion/react @emotion/styled**
-- To install json-server: **- npm install json-server --save-dev**
-- To run at the same time react-app and json-server in localhost: **- npm install concurrently --save-dev**
+- To install the library that we used for the popup: **npm install sweetalert --save**
 - To install React testing Library **npm install --save-dev @testing-library/react**
+- To install React-router-dom: **npm install --save react-router-dom**
 - To see the proyect: **- npm start**
   
 
