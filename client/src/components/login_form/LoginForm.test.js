@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 
 
 test('renders Login component', () => {
-  const component = render(<LoginForm/>);
-  const heading = screen.getByText('Acceso de usuario');
-  expect(heading).toBeInTheDocument();
+    const component = render(<LoginForm />);
+    const heading = screen.getByText('Acceso de usuario');
+    expect(heading).toBeInTheDocument();
 });
