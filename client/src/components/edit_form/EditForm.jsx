@@ -5,6 +5,7 @@ import Button from "../button/Button";
 import { updateDestination, getCardById } from "../../services/Api";
 
 const EditForm = () => {
+    const userId = Number(localStorage.getItem('auth_user_id'));
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
@@ -44,6 +45,10 @@ const EditForm = () => {
         const fetchData = async () => {
             try {
                 const cardData = await getCardById(id);
+                if (cardData.user_id !== userId) {
+                    navigate('/')
+                    return
+                }
                 setImage(cardData.image)
                 setTitle(cardData.title)
                 setLocation(cardData.location)

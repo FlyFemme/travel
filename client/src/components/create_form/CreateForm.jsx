@@ -31,21 +31,14 @@ const Create = () => {
 
             const response = await storeDestination(destinationData);
 
-            // console.log('Response:', response);
-
             if (response.errors) {
                 console.log('Errors:', response.errors);
             } else {
-                // console.log('No errors, navigating...');
                 navigate(`/show-logged/${response.id}`);
             }
         } catch (error) {
             console.error('Error creating destination:', error);
             const errors = error.response.data.errors
-            // const image = null
-            // if(errors.image){
-            //     image = errors.image[0]
-            // }
             setErrors({ image: errors.image && errors.image[0], title: errors.title && errors.title[0], location: errors.location && errors.location[0], description: errors.description && errors.description[0], });
         }
     };

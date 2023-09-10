@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Navbar from '../../components/navbar/Navbar';
-import { Link } from 'react-router-dom';
-import { getAllCards } from '../../services/Api';
+// eslint-disable-next-line
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { deleteCard, getAllCards } from '../../services/Api';
+import Delete from '../../assets/Delete.svg';
+import Edit from '../../assets/Edit.svg';
 
 const Home = () => {
   const [cards, setCards] = useState([]);
+  const { id } = useParams();
+  // const navigate = useNavigate();
+  const userId = Number(localStorage.getItem('auth_user_id'));
 
   useEffect(() => {
     fetchCards();
@@ -20,6 +26,15 @@ const Home = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await deleteCard(id);
+      // navigate('/');
+    } catch (error) {
+      console.error('Error deleting card:', error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -30,6 +45,13 @@ const Home = () => {
             <div className="card-body">
               <h5 className="card-title">{card.title}</h5>
               <p className="card-text">{card.location}</p>
+              {/* {cards.user.id === auth.user.id && buttons} */}
+              {card.user_id === userId &&
+                //PONER LOS ICONOS EN UN COMPONENTE
+                <div className="d-flex">
+                  <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
+                  <button onClick={() => handleDelete(card.id)} className='delete-button'><img src={Delete} className="m-1" alt="" /></button>
+                </div>}
             </div>
           </Link>
         ))}

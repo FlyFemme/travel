@@ -12,6 +12,7 @@ class CardController extends Controller
     public function index()
     {
         $cards = Card::all();
+        $cards = Card::with('user')->latest()->get();
         return $cards;
     }
 
@@ -35,6 +36,7 @@ class CardController extends Controller
         $card->location = $request->location;
         $card->description = $request->description;
 
+        $request->user()->card()->save($card);
         $card->save();
 
         return response()->json(['id' => $card->id], 201);
@@ -66,7 +68,7 @@ class CardController extends Controller
         $card->location = $request->location;
         $card->description = $request->description;
 
-        $card->save();
+        $request->user()->card()->save($card);
 
         return $card;
     }

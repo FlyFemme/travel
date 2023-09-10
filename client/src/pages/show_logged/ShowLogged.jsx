@@ -9,7 +9,8 @@ import { getCardById, deleteCard } from '../../services/Api';
 const ShowLogged = () => {
   const [show, setShow] = useState({});
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const userId = Number(localStorage.getItem('auth_user_id'));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,22 +33,6 @@ const ShowLogged = () => {
       console.error('Error deleting card:', error);
     }
   };
-
-  var buttons = '';
-  if (!localStorage.getItem('auth_token')) {
-    buttons = (
-      <>
-      </>
-    );
-  }
-  else {
-    buttons = (
-      <div className="d-flex">
-        <Link to={`/Edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
-        <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} className="m-1" alt="" /></button>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -74,7 +59,12 @@ const ShowLogged = () => {
                 <h3 style={{ color: '#FF0060', fontWeight: 'bold' }}>
                   {show.title}
                 </h3>
-                {buttons}
+                {show.user_id === userId &&
+                  //PONER LOS ICONOS EN UN COMPONENTE
+                  <div className="d-flex">
+                    <Link to={`/edit/${id}`}><img src={Edit} className="m-1" alt="" /></Link>
+                    <button onClick={() => handleDelete(show.id)} className='delete-button'><img src={Delete} className="m-1" alt="" /></button>
+                  </div>}
               </div>
               <p style={{ color: '#FF0060' }}>{show.location}</p>
               <p className="text-primary">{show.description}</p>
