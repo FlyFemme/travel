@@ -32,7 +32,7 @@ const EditForm = () => {
             if (response.errors) {
                 console.log('Errors:', response.errors);
             } else {
-                navigate(`/show-logged/${id}`);
+                navigate(`/card/${id}`);
             }
         } catch (error) {
             console.error('Error updating destination:', error);
@@ -45,6 +45,7 @@ const EditForm = () => {
         const fetchData = async () => {
             try {
                 const cardData = await getCardById(id);
+                console.log(cardData.user_id, userId, cardData.user_id !== userId)
                 if (cardData.user_id !== userId) {
                     navigate('/')
                     return
@@ -115,7 +116,7 @@ const EditForm = () => {
 
                         <div className="d-flex gap">
                             <Button backgroundColorClass="bttn-primary" text="Aceptar" />
-                            <Link to={`/show-logged/${id}`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
+                            <Link to={`/card/${id}`}><Button backgroundColorClass="bttn-secondary" text="Cancelar" /></Link>
                         </div>
                     </div>
                     <div className="col-md-6">

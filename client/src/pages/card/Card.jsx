@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './ShowLogged.css';
+import './Card.css';
 import Navbar from '../../components/navbar/Navbar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Delete from '../../assets/Delete.svg';
 import Edit from '../../assets/Edit.svg';
 import { getCardById, deleteCard } from '../../services/Api';
 
-const ShowLogged = () => {
+const Card = () => {
   const [show, setShow] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
@@ -76,4 +76,4 @@ const ShowLogged = () => {
   )
 }
 
-export default ShowLogged
+export default Card

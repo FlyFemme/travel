@@ -37,8 +37,6 @@ class CardController extends Controller
         $card->description = $request->description;
 
         $request->user()->card()->save($card);
-        $card->save();
-
         return response()->json(['id' => $card->id], 201);
     }
 
@@ -69,7 +67,6 @@ class CardController extends Controller
         $card->description = $request->description;
 
         $request->user()->card()->save($card);
-
         return $card;
     }
 

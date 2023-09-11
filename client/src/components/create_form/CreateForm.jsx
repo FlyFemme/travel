@@ -34,7 +34,7 @@ const Create = () => {
             if (response.errors) {
                 console.log('Errors:', response.errors);
             } else {
-                navigate(`/show-logged/${response.id}`);
+                navigate(`/card/${response.id}`);
             }
         } catch (error) {
             console.error('Error creating destination:', error);
