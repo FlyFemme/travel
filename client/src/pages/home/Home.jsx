@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import axios from 'axios';
 import Navbar from '../../components/navbar/Navbar';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { deleteCard, getAllCards } from '../../services/Api';
@@ -8,6 +9,7 @@ import Edit from '../../assets/Edit.svg';
 
 const Home = () => {
   const [cards, setCards] = useState([]);
+  // eslint-disable-next-line
   const { id } = useParams();
   const userId = Number(localStorage.getItem('auth_user_id'));
   const navigate = useNavigate()
@@ -27,8 +29,10 @@ const Home = () => {
 
   const handleDelete = async (e, id) => {
     try {
+      e.stopPropagation();
       await deleteCard(id);
-      navigate('/');
+      const newCardList = cards.filter(el => el.id !== id);
+      setCards(newCardList);
     } catch (error) {
       console.error('Error deleting card:', error);
     }
@@ -38,12 +42,20 @@ const Home = () => {
     navigate(`/card/${id}`)
   }
 
+  const handleSearch = (value) => {
+    axios.post(`http://localhost:8000/api/search?query=${value}`).then(res => {
+      setCards(res.data);
+    }).catch(function () {
+      // 
+    });
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar handleSearch={handleSearch} />
       <main className="d-flex flex-wrap justify-content-center">
         {cards.map((card) => (
-          <div onClick={() => handleCardClick(card.id)} className="item b-radius m-3">
+          <div key={card.id} onClick={() => handleCardClick(card.id)} className="item b-radius m-3">
             <img className="b-radius size" src={card.image} alt="" />
             <div className="card-body d-flex justify-content-between align-items-center m-1">
               <div>
