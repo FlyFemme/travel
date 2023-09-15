@@ -6,8 +6,8 @@
 
 
 ## <h1>General Information</h1>
-"FlyFemme/Happy Travel" is a project from Factoría F5's FemCoders Bootcamp where, based on a project already created with CRUD, Laravel, Blade templates and connected to a MySQL Database, it will be complemented with a Frontend with React.
-Documentación del proyecto Inicial: https://factoriaf5.notion.site/Happy-Travel-ff4dab653ede4302aa248adbf345c6e8
+"FlyFemme/Happy Travel" is a project from Factoría F5's FemCoders Bootcamp where,, based on a project already created with CRUD, Laravel, Blade templates and connected to a MySQL Database, it will be complemented with a Frontend with React.
+Initial project documentation:: https://factoriaf5.notion.site/Happy-Travel-ff4dab653ede4302aa248adbf345c6e8
 
 
 # Mokups
@@ -51,34 +51,43 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 <img src="https://w7.pngwing.com/pngs/115/721/png-transparent-trello-social-icons-icon.png" alt="trello" width="40" heigth="40"/>
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="40" heigth="40"/>
+<img src="https://testing-library.com/img/octopus-128x128.png" alt="github" width="40" heigth="40"/>
 </div>
 
-### A list of another technologies used in this proyect
+### Versions used in this project
 ***
-- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : versión html5
-- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): versión css3
-- [Visual Studio Code](https://code.visualstudio.com/): Version 1.79.
+- [HTML](https://developer.mozilla.org/es/docs/Web/HTML) : version html5
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): version css3
+- [Visual Studio Code](https://code.visualstudio.com/): version 1.79.
+- [Testing Library React](https://testing-library.com/docs/react-testing-library/intro/) :version 5.17.0
+- [php](https://www.php.net/): version 8.2
+- [Jest](https://jestjs.io/es): version 27.5
+- [Bootstrap](https://getbootstrap.com/): version 5.3
 
 ## <h1>Installation</h1>
 ***
   
 - Clone this repository: https://github.com/Trip-Coders/happy-travel.git
-- Place the project folder into the projects directory of your XAMPP installation
-- Set up the database.
+- Place the project folder into the projects directory of your XAMPP/MAMP installation
+- Create the database called **"cards"**.
 - Open the project in your code editor.
   
 ## Back
-- Inside the "laravel" folder,
+- Inside the "travel/server" folder
 - Open a terminal and run **"composer install"**
-- for view the project in your browser, execute the command: **php artisan serve**
+- **php artisan migrate**
+- **php artisan db:seed --class=CardSeeder**
+- For view the project in your browser, execute the command: **php artisan serve**
+- Roles gestion: **composer require spatie/laravel-permission**
 
 ## Front
-- To start the proyect, write in the terminal. - npm i
-- To get the API: - npm install axios
-- To install the library that we used for the popup: - npm install @mui/material @emotion/react @emotion/styled
-- To install json-server: - npm install json-server --save-dev
-- To run at the same time react-app and json-server in localhost: - npm install concurrently --save-dev
-- To see the proyect: - npm start
+- To start the proyect, write in the terminal.**- npm i**
+- To get the API: **- npm install axios**
+- To install the library that we used for the popup: **npm install sweetalert --save**
+- To install React testing Library **npm install --save-dev @testing-library/react**
+- To install React-router-dom: **npm install --save react-router-dom**
+- To see the proyect: **- npm start**
+  
 
   
   
@@ -89,3 +98,4 @@ You can check the UI in https://www.figma.com/file/twPJOzEo5hZJZ7srsEt10y/HappyT
 - [Ana Lucía Silva](https://github.com/alusilco) Developer - Product Owner
 - [Rosa M. Rubio](https://github.com/rosa-rubio) Developer
 - [Teresa Villa](https://github.com/Teresa1965) Developer
+
