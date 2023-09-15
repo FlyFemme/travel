@@ -14,6 +14,7 @@ class CardController extends Controller
         $cards = Card::all();
         $cards = Card::with('user')->latest()->get();
         return $cards;
+        //return response()->json($cards);
     }
 
     public function store(Request $request)
