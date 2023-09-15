@@ -35,9 +35,9 @@ class AuthController extends Controller
             $token = $user->createToken($user->email . '_Token')->plainTextToken;
 
             return response()->json([
-                'status' => 200,
                 'username' => $user->name,
                 'token' => $token,
+                'id' => $user->id,
                 'message' => 'Registered Successfully',
             ]);
         }
@@ -52,6 +52,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
+            //ACÁ LA RESPUESTA NO DEBERIA SER UN STATUS 200, SINO UN 401
             return response()->json([
                 'validation_errors' => $validator->messages(),
             ]);
@@ -67,9 +68,9 @@ class AuthController extends Controller
                 $token = $user->createToken($user->email . '_Token')->plainTextToken;
 
                 return response()->json([
-                    'status' => 200,
                     'username' => $user->name,
                     'token' => $token,
+                    'id' => $user->id,
                     'message' => 'Logged in Successfully',
                 ]);
             }

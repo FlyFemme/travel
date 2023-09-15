@@ -12,7 +12,9 @@ class CardController extends Controller
     public function index()
     {
         $cards = Card::all();
+        $cards = Card::with('user')->latest()->get();
         return $cards;
+        //return response()->json($cards);
     }
 
     public function store(Request $request)
@@ -35,8 +37,7 @@ class CardController extends Controller
         $card->location = $request->location;
         $card->description = $request->description;
 
-        $card->save();
-
+        $request->user()->card()->save($card);
         return response()->json(['id' => $card->id], 201);
     }
 
@@ -66,8 +67,7 @@ class CardController extends Controller
         $card->location = $request->location;
         $card->description = $request->description;
 
-        $card->save();
-
+        $request->user()->card()->save($card);
         return $card;
     }
 

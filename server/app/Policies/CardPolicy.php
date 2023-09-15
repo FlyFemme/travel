@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\FormAddNewCard;
+use App\Models\Card;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class FormAddNewCardPolicy
+class CardPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class FormAddNewCardPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FormAddNewCard  $formAddNewCard
+     * @param  \App\Models\Card  $card
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, FormAddNewCard $formAddNewCard)
+    public function view(User $user, Card $card)
     {
         //
     }
@@ -48,36 +48,34 @@ class FormAddNewCardPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FormAddNewCard  $formAddNewCard
+     * @param  \App\Models\Card  $card
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, FormAddNewCard $formAddNewCard)
+    public function update(User $user, Card $card)
     {
-                return $formAddNewCard->user()->is($user);
-
+        return $card->user()->is($user);
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FormAddNewCard  $formAddNewCard
+     * @param  \App\Models\Card  $card
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, FormAddNewCard $formAddNewCard)
+    public function delete(User $user, Card $card)
     {
-                return $this->update($user, $formAddNewCard);
-
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FormAddNewCard  $formAddNewCard
+     * @param  \App\Models\Card  $card
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, FormAddNewCard $formAddNewCard)
+    public function restore(User $user, Card $card)
     {
         //
     }
@@ -86,10 +84,10 @@ class FormAddNewCardPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\FormAddNewCard  $formAddNewCard
+     * @param  \App\Models\Card  $card
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, FormAddNewCard $formAddNewCard)
+    public function forceDelete(User $user, Card $card)
     {
         //
     }

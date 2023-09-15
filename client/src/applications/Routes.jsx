@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import ShowLogged from '../pages/show_logged/ShowLogged';
+import ShowLogged from '../pages/card/Card';
 import Signin from '../pages/signin/Signin';
 import Edit from '../pages/edit/Edit';
 import Home from '../pages/home/Home';
@@ -14,7 +14,7 @@ const routes = [
     },
 
     {
-        path: "/show-logged/:id",
+        path: "/card/:id",
         element: <ShowLogged />,
     },
 

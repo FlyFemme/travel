@@ -4,7 +4,25 @@
 
  .input-icon {
     position: absolute;
-    right: 12px;
+    right: -5px;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+.search {
+    background-color: #FBFDCE;
+    color: #0079FF;
+}
+
+.search-button{
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: inherit; 
+    color: inherit;
+    position: absolute;
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
 }

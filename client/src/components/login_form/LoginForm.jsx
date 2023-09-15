@@ -30,17 +30,22 @@ const LoginForm = () => {
 
         axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
             axios.post(`http://localhost:8000/api/login`, formData).then(res => {
-                if (res.data.status === 200) {
-                    localStorage.setItem('auth_token', res.data.token);
-                    localStorage.setItem('auth_name', res.data.username);
-                    swal("Success", res.data.message, "success");
-                    navigate('/');
-                } else if (res.data.status === 401) {
-                    swal("Warning", res.data.message, "warning");
-                }
-                else {
-                    setLogin({ ...loginInput, error_list: res.data.validation_errors });
-                }
+                // if (res.data.status === 200) {
+                localStorage.setItem('auth_token', res.data.token);
+                localStorage.setItem('auth_name', res.data.username);
+                localStorage.setItem('auth_user_id', res.data.id);
+                swal("Success", res.data.message, "success");
+                navigate('/');
+
+                //SI EL LOGIN ES INCORRECTO ENTONCES ESTA FUNCION NO SE VA EJECUTAR, POR LO TANTO SE TIENE QUE USAR .CATCH PARA ESTA PROMESA
+                // } else if (res.data.status === 401) {
+                //     swal("Warning", res.data.message, "warning");
+                // }
+                // else {
+                //     setLogin({ ...loginInput, error_list: res.data.validation_errors });
+                // }
+            }).catch(function () {
+                // ACÁ SE DEBERÍA MOVER LA LINEA 41 A 46, Y BORRAR LA LINEA 33
             });
         });
     }
